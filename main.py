@@ -1,4 +1,5 @@
 import requests
+import json
 from pprint import pprint
 
 from config import api_key
@@ -11,12 +12,6 @@ headers= {
   "apikey": api_key
 }
 
-response_latest = requests.request("GET", url_latest, headers=headers, data = payload)
+response_latest = requests.request("GET", url_latest, headers=headers, data = payload).json()
 
-status_code = response_latest.status_code
-result_latest = response_latest.text
-
-print(result_latest)
-
-with open("response.txt", "w") as f:
-    f.write(result_latest)
+print(response_latest)
