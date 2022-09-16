@@ -1,5 +1,5 @@
 import pandas as pd
-import matplotlib as plt
+import matplotlib.pyplot as plt
 import datetime
 import requests
 
@@ -16,6 +16,27 @@ def get_rates(base, currency1, amount_of_days, end_date = today_date):
 
   response = requests.request("GET", url, headers=headers, data = payload).json()
   
-  print (response) 
+  #store data
+  rate_history = {}
+  rate_list = []
 
-get_rates("USD", "EUR", 10)
+  for item in response['rates']:
+    current_date = item
+    currency1_rate = response['rates'][item][currency1]
+
+    rate_history[current_date] = currency1_rate
+    rate_list.append(currency1_rate)
+
+  #get in pandas DF
+  pd_result = pd.DataFrame([rate_history]).transpose()
+  pd_result.columns = ["Rate"]
+
+  #quick data viz
+  plt.plot(rate_list)
+  plt.ylabel(f"{base} to {currency1}")
+  plt.xlabel("Days")
+  plt.title (f"Value of exchange rate of {base} to {currency1} between {start_date} and {end_date}")
+  plt.show()
+
+
+get_rates("USD", "EUR", 30)
