@@ -4,15 +4,9 @@ import requests
 
 #from config import api_key
 
-def get_fluctuations(base, currency1, amount_of_days, end_day = None):
+#get total fluctuation between two chosen dates
+def get_fluctuations(base, currency1, amount_of_days, end_date):
 
-  #if end date provided: turn it into datetime format
-  if end_day is not None:
-    end_date = datetime.datetime.strptime(end_day, '%m-%d-%Y').date()
-
-  else:
-      end_date = datetime.datetime.now().date()
-  
   #set start date
   start_date = (end_date - datetime.timedelta(days = 1 * amount_of_days))
 
@@ -31,27 +25,41 @@ def get_fluctuations(base, currency1, amount_of_days, end_day = None):
   fluctuation_pct[response['end_date']] = change_pct
   fluctuation_abs[response['end_date']] = change_abs
 
-  print(fluctuation_pct)
-  
+  return fluctuation_pct
 
-get_fluctuations("USD", "EUR", 270, "11-13-2009")
+
+# now aggregate fluctuations over a given period
+def get_fluctuations_agg(base, currency1, interval, timeframe, end_day = None):
+  
+  #if end_date not provided: set it as today
+  if end_day is not None:
+    end_date = datetime.datetime.strptime(end_day, '%m-%d-%Y').date()
+
+  else:
+      end_date = datetime.datetime.now().date()
+
+  fluctuations_history = {}
+  fluctuations_list = []
+
+  for i in range(timeframe):
+    current_end_date = end_date - datetime.timedelta(i*interval)
+
+    fluctuation_pct = get_fluctuations(base, currency1, interval, current_end_date)
+    
+    current_end_date_str = list(fluctuation_pct.keys())[0]
+    fluctuations_history[current_end_date_str] = fluctuation_pct[current_end_date_str]
+    fluctuations_list.append(fluctuation_pct[current_end_date_str])
+
+  print(fluctuations_history)
+
+
 
 
 """
-
-#store data
-rate_history = {}
-rate_list = []
-
-for item in response['rates']:
-current_date = item
-currency1_rate = response['rates'][item][currency1]
-
-rate_history[current_date] = currency1_rate
-rate_list.append(currency1_rate)
-
 #get in pandas DF
 pd_result = pd.DataFrame([rate_history]).transpose()
 pd_result.columns = ["Rate"]
 
 """
+
+get_fluctuations_agg("USD", "EUR", 183, 1)

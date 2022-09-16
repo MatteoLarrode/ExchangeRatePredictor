@@ -4,6 +4,7 @@ import datetime
 import requests
 
 #from config import api_key
+rate_history = {}
 
 def get_rates(base, currency1, amount_of_days, end_day = None):
 
@@ -24,7 +25,6 @@ def get_rates(base, currency1, amount_of_days, end_day = None):
   response = requests.request("GET", url, headers=headers, data = payload).json()
   
   #store data
-  rate_history = {}
   rate_list = []
 
   for item in response['rates']:
@@ -46,4 +46,5 @@ def get_rates(base, currency1, amount_of_days, end_day = None):
   plt.show()
 
 
-get_rates("USD", "EUR", 365)
+
+get_rates("USD", "JPY", 90)
