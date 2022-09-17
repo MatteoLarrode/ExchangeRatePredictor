@@ -86,7 +86,7 @@ Parameters of the function:
     - format (including the quotation marks): 'mm-dd-yyyy'
 
 <p>
-Example of use: get_fluctuations_agg("USD", "EUR", 90, 6) will give the change of exchange rate between US dollar and euro at the end of every trimester over the last 2 years (= 6 trimesters).
+Example of use: get_fluctuations_agg("USD", "EUR", 90, 6) will return the change of exchange rate between US dollar and euro at the end of every trimester over the last 2 years (= 6 trimesters).
 </p>
 
 <p>
