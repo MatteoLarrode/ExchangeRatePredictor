@@ -7,7 +7,11 @@ As a disclaimer, I am well aware that exchange rate prediction is an incredibly 
 </p>
 
 ## Rationale
-Family sending me money from France to the US 
+<p>
+As an expatriate student, my family supports me by regularly sending money. This money, earned in euros is subject to the fluctutions of exchange rates. Finding the correct window of opportunity, where exchange rates are optimal, can save a consequential amount of money. At this game, my father has essentially played a guessing name up until now. 
+</p>
+My objective is to inform his decision making in order to optimise those transfers and therefore save money. <br/>
+Additionally, predicting exchange rates could also be helpful in the budgeting of my family's worldwide travels. 
 
 ## Explore exchange rates fluctuations
 
