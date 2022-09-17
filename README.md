@@ -10,9 +10,14 @@ As a disclaimer, I am well aware that exchange rate prediction is an incredibly 
 <p>
 As an expatriate student - first in London and now in Washington D.C.- my family supports me by regularly sending money. This money, earned in euros is subject to the fluctutions of exchange rates. Finding the correct window of opportunity, where exchange rates are optimal, can save a consequential amount of money. At this game, my father has essentially played a guessing name up until now. 
 </p>
-My objective is to inform his decision making in order to optimise those transfers and therefore save money. Additionally, predicting exchange rates could also be helpful in the budgeting of my family's worldwide travels. 
+<p>
+My objective is to inform his decision making in order to optimise those transfers and therefore save money. Additionally, predicting exchange rates could also be helpful in the budgeting of my family's worldwide travels.
+</p>
 
-## Explore exchange rates fluctuations
+Skip the implementation details by clicking [here](#analyzing-exchange-rate-fluctuations)
+
+
+## Explore exchange rates fluctuations (method)
 ### Pulling the exchange rates
 #### Finding the right API
 At the basis of this project is data extracted from the web using an API. The criteria guiding the choice of this API include: <br/>
@@ -21,9 +26,8 @@ At the basis of this project is data extracted from the web using an API. The cr
 3. High number of API calls allowed / month for a reasonable price
 4. Ease of use & in-depth documentation
 
-<p>
-The [Fixer.io](https://fixer.io/) API fulfilled those criteria best according to me. It is powered by 15+ exchange rate data sources, including the European Central Bank. It can deliver real-time exchange rate data for [170 world currencies](https://fixer.io/symbols).
-</p>
+
+The [Fixer.io](https://fixer.io/) API fulfilled those criteria best according to me. It is powered by 15+ exchange rate data sources, including the European Central Bank. It can deliver real-time exchange rate data for [170 world currencies](https://fixer.io/symbols). It also includes their historical values since 1999.
 <p>
 Importantly, it comes with different functionalities allowing to get the latest exchange rate data for all or a specific set of currencies, retrieve time-series data and querying the API for daily fluctuation data. Those functionalities can be accessed by altering the API call's url, and will be used in the diversity of tasks performed in this project
 </p>
@@ -33,12 +37,48 @@ A few limits of this API should be underlined:
 2. My subscription allows for a maximum of 300 daily requests. Although it is enough to perform most tasks for a project of this size, it did prompt require me to work around it in some cases as we will see later.
 
 #### The get_rate() function
+Parameters of the function:
+- base: base currency [e.g. 'USD']
+- currency1: currency studied [e.g. 'EUR']
+    - the currrency code must be included in quotation marks
+    - the list of supported currency codes is available [here](https://fixer.io/symbols)
+- amount_of_days: lemgth of the time period examined in days [e.g. 30]
+    - maximum = 365
+- end_day (optional): end of the time period examined [e.g. '07/03/2001']
+    - if no end date is provided, it is assigned to the date at which the program is run
+    - format (including the quotation marks): 'mm-dd--yyyy'
+
+<p>
+Potential follow-up: add support for more currencies simultaneously studied. 
+</p>
 
 
-### Studying the fluctuations of exchange rates
+### Exchange rate fluctuations
+<p>
+My exploratory data analysis is centered around the question:
+</p>
+
+**Which independent variables are the most influential in affecting exchange rates fluctuations?** In other words, what causes exchange rates to change. <br/>
+To answer this question, and given the scope and rationale of this project, I will focus on remarkable fluctuations of exchange rates. And this on different levels:
+- years: geopolitical evolutions affecting exch. rates over the course of decades
+- months: major events that can affect exch. rates over months
+- days: less significant incidents leading to small hiccups of exch. rates
+
+#### The get_fluctuations_agg() function
+            
+→ analyze dataset & look into periods of stability and instability
+
+The range of customization of this function is extremely broad. The possibility of anayzing fluctuations of exchange rates over years (although later than 1999), and in 170 currencies, could allow to study major political or economic events far outside of the scope of this project.
+
+## Analyzing exchange rate fluctuations
+### Over years
+
+### Over months
+
+### Over days
+
 
 ## Predicting exchange rates changes
-
 ### ARIMA model: use historical data
 Analysis of time series - but LIMITATIONS
 
@@ -47,7 +87,7 @@ Analysis of time series - but LIMITATIONS
 ## Potential follow-ups
 
 
-## Personal takeaways of this project
+## Personal takeaways from this project
 
 ### Skills developed 
 first personal project in Python
