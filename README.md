@@ -1,5 +1,6 @@
 # ExchangeRatePredictor
-In this project, I analyse exchange rate changes and attempt to create a model predicting future rates. I extract data from an API and process it in Python using libraries such as 'requests', 'pandas', and 'matplotlib' among others. <br/>
+In this project, I analyse exchange rate changes and attempt to create a model predicting future rates. I extract data from an API and process it in Python using libraries such as 'requests', 'pandas', and 'matplotlib' among others. 
+<br/>
 As a disclaimer, I am well aware that exchange rate prediction is an incredibly complex entreprise that even the most trained finance analysts struggle to undertake successfully. For this reason, my effort to build predictive models is not meant to guide consequential investmemt decisions. Rather,  it is a 'hands-on' attempt is to learn essential skills and use key tools used in data analysis applied to a problem that affects my everday life. <br/>
 
 ## Rationale
