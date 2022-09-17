@@ -4,11 +4,11 @@ Analysis and prediction of exchange rates changes using APIs and machine learnin
 ## Rationale
 Family sending me money from France to the US 
 
-## Exploratory Data Analysis: Analyse fluctuations of exch. rates
+## Explore exchange rates fluctuations
 
 ### Pulling the exchange rates
 API:
--description-limits(limited number of API calls, can only pull data for one year) /// 
+-description-<br/>limits(limited number of API calls, can only pull data for one year) /// 
 
 
 ### Studying the fluctuations of exchange rates
