@@ -37,16 +37,20 @@ A few limits of this API should be underlined:
 2. My subscription allows for a maximum of 300 daily requests. Although it is enough to perform most tasks for a project of this size, it did prompt require me to work around it in some cases as we will see later.
 
 #### The get_rate() function
+<p>
+This function makes the API call to fetch the exchange rate of every day in the time period specified by the user, and for a chosen pair of currencies.
+</p>
+
 Parameters of the function:
-- base: base currency [e.g. 'USD']
-- currency1: currency studied [e.g. 'EUR']
+- 'base': base currency [e.g. 'USD']
+- 'currency1': currency studied [e.g. 'EUR']
     - the currrency code must be included in quotation marks
     - the list of supported currency codes is available [here](https://fixer.io/symbols)
-- amount_of_days: lemgth of the time period examined in days [e.g. 30]
+- 'amount_of_days': length of the time period examined in days [e.g. 30]
     - maximum = 365
-- end_day (optional): end of the time period examined [e.g. '07/03/2001']
+- 'end_day' (optional): end of the time period examined [e.g. '07/03/2001']
     - if no end date is provided, it is assigned to the date at which the program is run
-    - format (including the quotation marks): 'mm-dd--yyyy'
+    - format (including the quotation marks): 'mm-dd-yyyy'
 
 <p>
 Potential follow-up: add support for more currencies simultaneously studied. 
@@ -54,21 +58,40 @@ Potential follow-up: add support for more currencies simultaneously studied.
 
 
 ### Exchange rate fluctuations
-<p>
-My exploratory data analysis is centered around the question:
-</p>
-
-**Which independent variables are the most influential in affecting exchange rates fluctuations?** In other words, what causes exchange rates to change. <br/>
+My exploratory data analysis is centered around the question: <br/>
+**Which independent variables are the most influential in affecting exchange rates fluctuations?** <br/> 
+In other words, what causes exchange rates to change. <br/>
 To answer this question, and given the scope and rationale of this project, I will focus on remarkable fluctuations of exchange rates. And this on different levels:
 - years: geopolitical evolutions affecting exch. rates over the course of decades
 - months: major events that can affect exch. rates over months
 - days: less significant incidents leading to small hiccups of exch. rates
 
 #### The get_fluctuations_agg() function
-            
-→ analyze dataset & look into periods of stability and instability
 
-The range of customization of this function is extremely broad. The possibility of anayzing fluctuations of exchange rates over years (although later than 1999), and in 170 currencies, could allow to study major political or economic events far outside of the scope of this project.
+This function is the cornerstone of my study of exchange rates fluctuations. It makes use of the '/fluctuation' endpoint of the API that returns the total change (absolute or in percent) of the exchange rate between two days within a year of one another.
+<p>
+By combining this functionality with a 'for' loop, the function returns a history of exchange rates fluctuations for any number of a time interval chosen by the user. For example, this interval can be 30 days, allowing to observe monthly fluctuations of the exchange rate. An interval of 1 gives the daily changes while inputting 365 allows to compare years.
+</p>
+
+Parameters of the function:
+- 'base': base currency [e.g. 'USD']
+- 'currency1': currency studied [e.g. 'EUR']
+    - the currrency code must be included in quotation marks
+    - the list of supported currency codes is available [here](https://fixer.io/symbols)
+- 'interval': span of the time interval in days 
+    - maximum = 365
+- 'timeframe': number of time the interval is repeated
+- 'end_day' (optional): end of the time period examined [e.g. '07/03/2001']
+    - if no end date is provided, it is assigned to the date at which the program is run
+    - format (including the quotation marks): 'mm-dd-yyyy'
+
+<p>
+Example of use: get_fluctuations_agg("USD", "EUR", 90, 6) will give the change of exchange rate between US dollar and euro at the end of every trimester over the last 2 years (= 6 trimesters).
+</p>
+
+<p>
+The range of customization of this function is extremely broad. The possibility of analyzing fluctuations of exchange rates over years (although later than 1999), and in 170 currencies, could allow to study major political or economic events far outside of the scope of this project.
+</p>
 
 ## Analyzing exchange rate fluctuations
 ### Over years
