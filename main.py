@@ -7,4 +7,6 @@ from fluctuations import get_fluctuations_agg
 print_rates("JPY", "USD", 90)
 
 
-fluctuations_history = get_fluctuations_agg("USD", "EUR", 30, 3)
+fluctuations_history = get_fluctuations_agg("USD", "EUR", 80, 2)
+
+print (fluctuations_history)
