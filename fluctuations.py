@@ -1,18 +1,16 @@
-import pandas as pd
 import datetime
 import requests
 
-#from config import api_key
+from config import api_key
 
 #get total fluctuation between two chosen dates
 def get_fluctuations(base, currency1, amount_of_days, end_date):
-
   #set start date
   start_date = (end_date - datetime.timedelta(days = 1 * amount_of_days))
 
   url = "https://api.apilayer.com/fixer/fluctuation?start_date=%s&end_date=%s&symbols=%s&base=%s" %(start_date, end_date, currency1, base)
   payload = {}
-  headers= {"apikey": "A2YX3jHkSDGg8HwEFTK7N6jmHq6a93VN"}
+  headers= {"apikey": api_key}
 
   response = requests.request("GET", url, headers=headers, data = payload).json()
 
@@ -28,7 +26,6 @@ def get_fluctuations(base, currency1, amount_of_days, end_date):
   return fluctuation_pct
 
 
-# now aggregate fluctuations over a given period
 def get_fluctuations_agg(base, currency1, interval, timeframe, end_day = None):
   
   #if end_date not provided: set it as today
@@ -50,16 +47,4 @@ def get_fluctuations_agg(base, currency1, interval, timeframe, end_day = None):
     fluctuations_history[current_end_date_str] = fluctuation_pct[current_end_date_str]
     fluctuations_list.append(fluctuation_pct[current_end_date_str])
 
-  print(fluctuations_history)
-
-
-
-
-"""
-#get in pandas DF
-pd_result = pd.DataFrame([rate_history]).transpose()
-pd_result.columns = ["Rate"]
-
-"""
-
-get_fluctuations_agg("USD", "EUR", 183, 1)
+  return fluctuations_history
