@@ -1,4 +1,5 @@
 import datetime
+from turtle import color
 import requests
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -38,8 +39,11 @@ def print_rates(base, currency1, amount_of_days, end_day = None):
   #get in pandas DF
   pd_result = pd.DataFrame([rate_history]).transpose()
   pd_result.columns = ["Rate"]
+ 
 
+  plt.figure()
   plt.plot(rate_list)
+  plt.axhline(1, ls = 'dashed', lw = '1', color = 'black')
   plt.ylabel(f"{base} to {currency1}")
   plt.xlabel("Days")
   plt.title (f"Value of exchange rate of {base} to {currency1} from {start_date} to {end_date}")
