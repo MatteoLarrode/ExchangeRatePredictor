@@ -3,10 +3,10 @@ from turtle import color
 import requests
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+from matplotlib.ticker import NullFormatter
 
 from config import api_key
-
-rate_history = {}
 
 def print_rates(base, currency1, amount_of_days, end_day = None):
 
@@ -28,6 +28,7 @@ def print_rates(base, currency1, amount_of_days, end_day = None):
   
   #store data
   rate_list = []
+  rate_history = {}
 
   for item in response['rates']:
     current_date = item
@@ -36,16 +37,33 @@ def print_rates(base, currency1, amount_of_days, end_day = None):
     rate_history[current_date] = currency1_rate
     rate_list.append(currency1_rate)
 
+
   #get in pandas DF
-  pd_result = pd.DataFrame([rate_history]).transpose()
-  pd_result.columns = ["Rate"]
+  df_result = pd.DataFrame([rate_history]).transpose()
+  df_result.columns = ["Rate"]
  
 
-  plt.figure()
-  plt.plot(rate_list)
-  plt.axhline(1, ls = 'dashed', lw = '1', color = 'black')
-  plt.ylabel(f"{base} to {currency1}")
-  plt.xlabel("Days")
+  fig, ax = plt.subplots()
+  fig.set_size_inches(10,5)
+
+  plt.plot(df_result)
+  ax.spines['right'].set_visible(False)
+  ax.spines['top'].set_visible(False)
+
+  ax.xaxis.set_major_locator(mdates.MonthLocator())
+  ax.xaxis.set_minor_locator(mdates.MonthLocator(bymonthday= [10, 20]))
+  #PROBLEM: considers as if today is first day: minor divide the month as expected BUT not on the right dates
+
+  ax.xaxis.set_major_formatter(mdates.DateFormatter('%b-%Y'))
+  #GETS THE DATE WRONG! WHY?
+  #in date format: not string so OK
+  
+  plt.gcf().autofmt_xdate()
+
+  
+  plt.axhline(1, linestyle='dashed', lw = '1', color = 'red')
+  plt.grid(axis='y', lw = '0.5')
+  plt.xlabel("")
   plt.title (f"Value of exchange rate of {base} to {currency1} from {start_date} to {end_date}")
   plt.show()
 

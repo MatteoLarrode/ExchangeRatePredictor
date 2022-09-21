@@ -95,17 +95,46 @@ The range of customization of this function is extremely broad. The possibility 
 
 ## Analyzing exchange rate fluctuations
 ### Over years
+1) General examples <br/>
+- give some background about exchange rates
+- historical examples (Development of countries: China? India? Changes of regimes)
+
+2) USD - EUR <br/>
+- exchange rates over the last decade
+- quick overview
 
 ### Over months
 
+Zooming in a little <br/>
+
+1) General examples <br/>
+- historical examples (covid? wars? Arab Springs?)
+
+2) USD - EUR <br/>
+- exchange rates over the last months / year
+- quick overview
+
+
+But what interests us in this project are smaller scale variations<br/>
+We have data on the daily and want to use it to inform everyday life decisions<br/>
+Let's have a look at fluctuations over days <br/>
+
 ### Over days
+
+1) Interesting examples <br/>
+- historical examples (tweets, events, elections)
+
+
+2) USD - EUR: Biggest fluctuations recently <br/>
 
 
 ## Predicting exchange rates changes
+Having had a broad overview of exchange rates fluctuations at different levels, we can draw lessons about the factors that influence exchange rates. 
+
 ### ARIMA model: use historical data
 Analysis of time series - but LIMITATIONS
 
-### Include other dependent variables: use EDA takeawaya
+### Include other dependent variables: using EDA takeawaya
 
 ## Potential follow-ups
 
