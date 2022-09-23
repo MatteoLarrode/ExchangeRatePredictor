@@ -37,16 +37,20 @@ def print_rates(base, currency1, amount_of_days, end_day = None):
     rate_history[current_date] = currency1_rate
     rate_list.append(currency1_rate)
 
+  df_result = pd.DataFrame({"time": list(rate_history.keys()), "rate": list(rate_history.values())})
+  df_result["time"] = pd.to_datetime(df_result["time"])
 
   #get in pandas DF
-  df_result = pd.DataFrame([rate_history]).transpose()
-  df_result.columns = ["Rate"]
+  #df_result = pd.DataFrame([rate_history]).transpose()
+  #df_result.columns = ["Rate"]
+
+  print(df_result.head())
  
 
   fig, ax = plt.subplots()
   fig.set_size_inches(10,5)
 
-  plt.plot(df_result)
+  plt.plot(df_result["time"], df_result["rate"])
   ax.spines['right'].set_visible(False)
   ax.spines['top'].set_visible(False)
 
@@ -57,11 +61,11 @@ def print_rates(base, currency1, amount_of_days, end_day = None):
   ax.xaxis.set_major_formatter(mdates.DateFormatter('%b-%Y'))
   #GETS THE DATE WRONG! WHY?
   #in date format: not string so OK
-  
+
   plt.gcf().autofmt_xdate()
 
   
-  plt.axhline(1, linestyle='dashed', lw = '1', color = 'red')
+  #plt.axhline(1, linestyle='dashed', lw = '1', color = 'red')
   plt.grid(axis='y', lw = '0.5')
   plt.xlabel("")
   plt.title (f"Value of exchange rate of {base} to {currency1} from {start_date} to {end_date}")
