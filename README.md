@@ -48,7 +48,7 @@ Parameters of the function:
     - the list of supported currency codes is available [here](https://fixer.io/symbols)
 - 'amount_of_days': length of the time period examined in days [e.g. 30]
     - maximum = 365
-- 'end_day' (optional): end of the time period examined [e.g. '07/03/2001']
+- 'end_day' (optional): end of the time period examined [e.g. '07-03-2001']
     - if no end date is provided, it is assigned to the date at which the program is run
     - format (including the quotation marks): 'mm-dd-yyyy'
 
@@ -95,8 +95,18 @@ The range of customization of this function is extremely broad. The possibility 
 
 ## Analyzing exchange rate fluctuations
 ### Over years
-1) General examples <br/>
-- give some background about exchange rates
+1) Overview <br/>
+The exchange rate gives the relative value of a currency compared to another. Since the end of the Bretton Woods agreement in the 1970s, most countries adopted free-floating currencies, allowing exchange rates to adjust to economic and market developments. They play a vital role in a country's level of trade and, aside from factors such as interest rates and inflation, are among the most important determinants of a country's relative level of economic health. We will look at some of the major forces behind exchange rate movements:
+
+
+- Differentials in Inflation: countries with higher inflation see their purchasing power decrease relative to other currencies. As a result they typically see depreciation in their currency against the currencies of their trading partners. A gradual and orderly currency depreciation improves a nation’s export competitiveness and may improve its trade deficit over time. However, if too abrupt and/or sizeable, it may scare foreign investors who will then pull portfolio investments out of the country, putting further downward pressure on the currency.
+
+
+- Differentials in Interest Rates: When interest rates are high, foreign lenders in an economy will get a higher return relative to other countries. This attraction of foreign capital causes the exchange rate to rise: there is appreciation. However, the intricate relationship between interest rates and inflation complicates this simple reasoning. For example, central banks usually raise interest rates in response to rising inflation. But, if inflation rises too quickly, it can devalue a currency quicker than interest rates can compensate foreign investors.
+
+
+
+
 - historical examples (Development of countries: China? India? Changes of regimes)
 
 2) USD - EUR <br/>
@@ -108,7 +118,7 @@ The range of customization of this function is extremely broad. The possibility 
 Zooming in a little <br/>
 
 1) General examples <br/>
-- historical examples (covid? wars? Arab Springs?)
+- historical examples (covid? wars? Arab Springs? Brexit?)
 
 2) USD - EUR <br/>
 - exchange rates over the last months / year
