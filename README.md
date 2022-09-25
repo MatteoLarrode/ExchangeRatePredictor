@@ -60,7 +60,7 @@ The print_rates_double() was added to add support for a second currency simultan
 ### Exchange rate fluctuations
 My exploratory data analysis is centered around the question: <br/>
 **Which independent variables are the most influential in affecting exchange rates fluctuations?** <br/> 
-In other words, what causes exchange rates to change. <br/>
+In other words, what causes exchange rates to change? <br/>
 To answer this question, and given the scope and rationale of this project, I will focus on remarkable fluctuations of exchange rates. And this on different levels:
 - years: geopolitical evolutions affecting exch. rates over the course of decades
 - months: major events that can affect exch. rates over months

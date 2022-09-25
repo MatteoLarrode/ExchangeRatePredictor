@@ -1,6 +1,7 @@
 import datetime
 import requests
 import pandas as pd
+import matplotlib.pyplot as plt
 
 from config import api_key
 
@@ -49,6 +50,12 @@ def get_fluctuations_agg(base, currency1, interval, timeframe, end_day = None):
     fluctuations_list.append(fluctuation_pct[current_end_date_str])
 
   df_result = pd.DataFrame({"Time": list(fluctuations_history.keys()), "Fluctuation (%)": list(fluctuations_history.values())})
-  df_result["Time"] = pd.to_datetime(df_result["time"])
 
-  return df_result
+  fig, ax = plt.subplots()
+  ax.axis('off')
+  ax.axis('tight')
+  ax.table(cellText=df_result.values, colLabels=df_result.columns, loc='center')
+  fig.tight_layout()
+  plt.show()
+
+  return
