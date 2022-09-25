@@ -36,9 +36,9 @@ A few limits of this API should be underlined:
 1. The range of the timeframe when retriving time-series data is limited to a year. Analysing changes in exchange rates over a perdiod longer than a year will require the aggregation of different API calls. 
 2. My subscription allows for a maximum of 300 daily requests. Although it is enough to perform most tasks for a project of this size, it did prompt require me to work around it in some cases as we will see later.
 
-#### The print_rate() function
+#### The print_rates() functions
 <p>
-This function makes the API call to fetch the exchange rate of every day in the time period specified by the user, and for a chosen pair of currencies. It then plots a graph showing the evolution of the exchange rate over the chosen time period.
+Th print_rates() function makes the API call to fetch the exchange rate of every day in the time period specified by the user, and for a chosen pair of currencies. It then plots a graph showing the evolution of the exchange rate over the chosen time period.
 </p>
 
 Parameters of the function:
@@ -53,7 +53,7 @@ Parameters of the function:
     - format (including the quotation marks): 'mm-dd-yyyy'
 
 <p>
-Potential follow-up: add support for more currencies simultaneously studied. 
+The print_rates_double() was added to add support for a second currency simultaneously studied. It allows to compare the evolution of two different currencies against the base currency. 
 </p>
 
 
