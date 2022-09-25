@@ -43,7 +43,7 @@ This function makes the API call to fetch the exchange rate of every day in the 
 
 Parameters of the function:
 - 'base': base currency [e.g. 'USD']
-- 'currency1': currency studied [e.g. 'EUR']
+- 'currency1': quote currency [e.g. 'EUR']
     - the currrency code must be included in quotation marks
     - the list of supported currency codes is available [here](https://fixer.io/symbols)
 - 'amount_of_days': length of the time period examined in days [e.g. 30]
@@ -75,13 +75,13 @@ By combining this functionality with a 'for' loop, the function returns a histor
 
 Parameters of the function:
 - 'base': base currency [e.g. 'USD']
-- 'currency1': currency studied [e.g. 'EUR']
+- 'currency1': quote currency [e.g. 'EUR']
     - the currrency code must be included in quotation marks
     - the list of supported currency codes is available [here](https://fixer.io/symbols)
 - 'interval': span of the time interval in days 
     - maximum = 365
 - 'timeframe': number of time the interval is repeated
-- 'end_day' (optional): end of the time period examined [e.g. '07/03/2001']
+- 'end_day' (optional): end of the time period examined [e.g. '07-03-2001']
     - if no end date is provided, it is assigned to the date at which the program is run
     - format (including the quotation marks): 'mm-dd-yyyy'
 
@@ -94,9 +94,7 @@ The range of customization of this function is extremely broad. The possibility 
 </p>
 
 ## Analyzing exchange rate fluctuations
-1) Overview <br/>
 The exchange rate gives the relative value of a currency compared to another. Since the end of the Bretton Woods agreement in the 1970s, most countries adopted free-floating currencies, allowing exchange rates to adjust to economic and market developments. They play a vital role in a country's level of trade and, aside from factors such as interest rates and inflation, are among the most important determinants of a country's relative level of economic health. We will look at some of the major forces behind exchange rate movements:
-
 
 - Differentials in Inflation: countries with higher inflation see their purchasing power decrease relative to other currencies. As a result they typically see depreciation in their currency against the currencies of their trading partners. A gradual and orderly currency depreciation improves a nation’s export competitiveness and may improve its trade deficit over time. However, if too abrupt and/or sizeable, it may scare foreign investors who will then pull portfolio investments out of the country, putting further downward pressure on the currency.
 
@@ -106,25 +104,26 @@ The exchange rate gives the relative value of a currency compared to another. Si
 
 
 ### Mid to Long-run
-
-- historical examples (Development of countries: China? India? Changes of regimes)
+1) Overview  <br/>
+- Case studies
+    - in Asia (China-US trade wars?)
+    - in MidEast (Arab Springs?)
+    - in Africa (wars?)
+    - in Europe (eurozone? Brexit?)
+    - in South America? 
 
 2) USD - EUR <br/>
-- exchange rates over the last decade
+- exchange rates over the last decade & months
 - quick overview
 
 Zooming in a little <br/>
 
-1) General examples <br/>
-- historical examples (covid? wars? Arab Springs? Brexit?)
-
-2) USD - EUR <br/>
+USD - EUR <br/>
 - exchange rates over the last months / year
 - quick overview
 
 
-But what interests us in this project are smaller scale variations<br/>
-We have data on the daily and want to use it to inform everyday life decisions<br/>
+But what interests us in this project are smaller scale variations. We have data on the daily and want to use it to inform everyday life decisions.<br/>
 Let's have a look at fluctuations over days <br/>
 
 ### Short-run
@@ -134,7 +133,6 @@ Let's have a look at fluctuations over days <br/>
 
 
 2) USD - EUR: Biggest fluctuations recently (+ tourist season?) <br/>
-
 
 ## Predicting exchange rates changes
 Having had a broad overview of exchange rates fluctuations at different levels, we can draw lessons about the factors that influence exchange rates. 

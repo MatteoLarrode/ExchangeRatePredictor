@@ -1,5 +1,6 @@
 import datetime
 import requests
+import pandas as pd
 
 from config import api_key
 
@@ -47,4 +48,7 @@ def get_fluctuations_agg(base, currency1, interval, timeframe, end_day = None):
     fluctuations_history[current_end_date_str] = fluctuation_pct[current_end_date_str]
     fluctuations_list.append(fluctuation_pct[current_end_date_str])
 
-  return fluctuations_history
+  df_result = pd.DataFrame({"Time": list(fluctuations_history.keys()), "Fluctuation (%)": list(fluctuations_history.values())})
+  df_result["Time"] = pd.to_datetime(df_result["time"])
+
+  return df_result
