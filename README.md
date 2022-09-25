@@ -94,26 +94,24 @@ The range of customization of this function is extremely broad. The possibility 
 </p>
 
 ## Analyzing exchange rate fluctuations
-### Over years
 1) Overview <br/>
 The exchange rate gives the relative value of a currency compared to another. Since the end of the Bretton Woods agreement in the 1970s, most countries adopted free-floating currencies, allowing exchange rates to adjust to economic and market developments. They play a vital role in a country's level of trade and, aside from factors such as interest rates and inflation, are among the most important determinants of a country's relative level of economic health. We will look at some of the major forces behind exchange rate movements:
 
 
 - Differentials in Inflation: countries with higher inflation see their purchasing power decrease relative to other currencies. As a result they typically see depreciation in their currency against the currencies of their trading partners. A gradual and orderly currency depreciation improves a nation’s export competitiveness and may improve its trade deficit over time. However, if too abrupt and/or sizeable, it may scare foreign investors who will then pull portfolio investments out of the country, putting further downward pressure on the currency.
 
-
 - Differentials in Interest Rates: When interest rates are high, foreign lenders in an economy will get a higher return relative to other countries. This attraction of foreign capital causes the exchange rate to rise: there is appreciation. However, the intricate relationship between interest rates and inflation complicates this simple reasoning. For example, central banks usually raise interest rates in response to rising inflation. But, if inflation rises too quickly, it can devalue a currency quicker than interest rates can compensate foreign investors.
 
+- Economic Performances: Foreign investors want to invest theur capital in stable countries with strong economic performance. A loss of confidence in a currency because of political and / or economic factors will lead to  movement of capital to the currencies of more stable countries.
 
 
+### Mid to Long-run
 
 - historical examples (Development of countries: China? India? Changes of regimes)
 
 2) USD - EUR <br/>
 - exchange rates over the last decade
 - quick overview
-
-### Over months
 
 Zooming in a little <br/>
 
@@ -129,13 +127,13 @@ But what interests us in this project are smaller scale variations<br/>
 We have data on the daily and want to use it to inform everyday life decisions<br/>
 Let's have a look at fluctuations over days <br/>
 
-### Over days
+### Short-run
 
 1) Interesting examples <br/>
 - historical examples (tweets, events, elections)
 
 
-2) USD - EUR: Biggest fluctuations recently <br/>
+2) USD - EUR: Biggest fluctuations recently (+ tourist season?) <br/>
 
 
 ## Predicting exchange rates changes
