@@ -7,4 +7,4 @@ from fluctuations import get_fluctuations_agg
 
 #print_rates_double("USD", "EUR", "GBP", 360, "09-30-2009")
 
-get_fluctuations_agg("USD", "JPY", 90, 13, "11-30-2010")
+get_fluctuations_agg("USD", "GBP", 90, 13, "11-30-2010")

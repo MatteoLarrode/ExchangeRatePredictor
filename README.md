@@ -104,20 +104,36 @@ The exchange rate gives the relative value of a currency compared to another. Si
 
 
 ### Mid to Long-run
-1) Case Study #1: the 2008 Financial Crisis  <br/>
-The adjustment of exchange rates during the financial crisis was remarkable, let us have a look at it. First, a broad overview of the exchange rates of the US dollar against two major currencies: the Euro, and the Japanese Yen. 
+1) **Case Study #1: the 2008 Financial Crisis**  <br/>
+The adjustment of exchange rates during the financial crisis was remarkable, let us have a look at it. First, a broad overview of the exchange rates of the US dollar against two major currencies: the Euro, and the British pound. 
 
-<code>get_fluctuations_agg("USD", "EUR", 90, 13, "11-30-2010")</code>
-<code>get_fluctuations_agg("USD", "JPY", 90, 13, "11-30-2010")</code>
+<code>get_fluctuations_agg("USD", "EUR", 90, 13, "11-30-2010")</code> <br/>
+<code>get_fluctuations_agg("USD", "GBP", 90, 13, "11-30-2010")</code>
 
 <p float="left">
   <img src="./images/crisis-rates-USD-EUR-tab.png" alt="Fluctuations of USD/EUR during 2007-2008 financial crisis" width=400/>
-  <img src="/./images/crisis-rates-USD-JPY-tab.png" alt="Fluctuations of USD/JPY during 2007-2008 financial crisis" width=400/> 
+  <img src="/./images/crisis-rates-USD-JPY-tab.png" alt="Fluctuations of USD/GBP during 2007-2008 financial crisis" width=400/> 
 </p>
 
-2) Case Study #2: Arab Spring countries, political instability & exchange rates <br/>
+*Phase 1:  September 2008 to March 2009 - US as a safe haven* <br/>
+"most currencies depreciated against the dollar as investors sought a safe haven, and the dollar appreciated 13.6 percent in nominal effective terms. Effective exchange rates are a trade-weighted average of a country’s bilateral exchange rates with its main trading partners."
 
-3) USD - EUR <br/>
+*Phase 2: March 2009 to November 2009 - Confidence returns..* <br/>
+"much of the depreciation against the dollar reversed as confidence returned. Over the same period, the dollar depreciated 11.7 percent in effective terms."
+
+*Phase 3: November 2009 to June 2010 - ..but is only temporary* <br/>
+"Since November, countries in the Euro area have begun to see depreciation against the dollar resume amidst concerns about the euro, with spillovers into the rest of Europe, and the dollar has appreciated an estimated 3.2 percent"
+
+*Phase 4: June 2010 to November 2010 - US Quantitative Easing* <br/>
+
+
+-> "Most exchange rates have followed a path largely determined by the United States’ status as a safe haven."
+
+*Other currencies* <br/>
+
+2) **Case Study #2: Arab Spring countries, political instability & exchange rates** <br/>
+
+3) **USD - EUR** <br/>
 - exchange rates over the last decade & months
 - quick overview
 
