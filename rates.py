@@ -53,7 +53,8 @@ def print_rates(base, currency1, amount_of_days, end_day = None):
   plt.gcf().autofmt_xdate()
   plt.grid(axis='y', lw = '0.5')
   plt.xlabel("")
-  plt.title (f"Value of exchange rate between {base} and {currency1} from {start_date} to {end_date}")
+  plt.title (f"Exchange rate between {base} and {currency1} from {start_date} to {end_date}")
   plt.show()
+  plt.savefig('/images/rates.png')
 
   return

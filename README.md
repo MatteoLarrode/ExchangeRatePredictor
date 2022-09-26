@@ -104,15 +104,21 @@ The exchange rate gives the relative value of a currency compared to another. Si
 
 
 ### Mid to Long-run
-1) Overview  <br/>
-- Case studies
-    - in Asia (China-US trade wars?)
-    - in MidEast (Arab Springs?)
-    - in Africa (wars?)
-    - in Europe (eurozone? Brexit?)
-    - in South America? 
+1) Case Study #1: the 2008 Financial Crisis  <br/>
+The adjustment of exchange rates during the financial crisis was remarkable, let us have a look at it. First, a broad overview of the exchange rates of the US dollar against two major currencies: the Euro, and the Japanese Yen. 
 
-2) USD - EUR <br/>
+
+<code>get_fluctuations_agg("USD", "EUR", 90, 13, "11-30-2010")</code>
+
+![Fluctuations of USD/EUR during 2007-2008 financial crisis](./images/crisis-rates-USD-EUR-tab.png)
+
+<code>get_fluctuations_agg("USD", "JPY", 90, 13, "11-30-2010")</code>
+
+![Fluctuations of USD/JPY during 2007-2008 financial crisis](./images/crisis-rates-USD-JPY-tab.png)
+
+2) Case Study #2: Arab Spring countries, political instability & exchange rates <br/>
+
+3) USD - EUR <br/>
 - exchange rates over the last decade & months
 - quick overview
 
@@ -146,8 +152,11 @@ Analysis of time series - but LIMITATIONS
 
 
 ## Personal takeaways from this project
-
-### Skills developed 
-first personal project in Python
-
-### Thinking as a data analyst
+First personal project in Python:
+- libraries: requests, matplotlib, pandas, dateteime
+- working with dictionaries, dataframes, plots
+- data: TIME-SERIES & operations on it 
+- data pipeline process
+    - acquisition of data: using APIs
+    - exploratory data analysis: plotting & critical thinking
+    - modelling

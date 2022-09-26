@@ -55,7 +55,11 @@ def get_fluctuations_agg(base, currency1, interval, timeframe, end_day = None):
   ax.axis('off')
   ax.axis('tight')
   ax.table(cellText=df_result.values, colLabels=df_result.columns, loc='center')
-  fig.tight_layout()
+  #fig.tight_layout()
+  plt.title (f"Exchange rate fluctuations between {base} and {currency1}")
+  plt.savefig('./images/fluctuations.png')
   plt.show()
+  
+
 
   return
