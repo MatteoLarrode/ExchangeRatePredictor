@@ -117,8 +117,8 @@ The adjustment of exchange rates during the financial crisis was remarkable, let
 ![Fluctuations of USD/JPY during 2007-2008 financial crisis](./images/crisis-rates-USD-JPY-tab.png)
 
 <p float="left">
-  <img src="./images/crisis-rates-USD-EUR-tab.png" alt="Fluctuations of USD/EUR during 2007-2008 financial crisis"/>
-  <img src="/./images/crisis-rates-USD-JPY-tab.png" alt="Fluctuations of USD/JPY during 2007-2008 financial crisis"/> 
+  <img src="./images/crisis-rates-USD-EUR-tab.png" alt="Fluctuations of USD/EUR during 2007-2008 financial crisis" width=200/>
+  <img src="/./images/crisis-rates-USD-JPY-tab.png" alt="Fluctuations of USD/JPY during 2007-2008 financial crisis" width=200/> 
 </p>
 
 2) Case Study #2: Arab Spring countries, political instability & exchange rates <br/>
