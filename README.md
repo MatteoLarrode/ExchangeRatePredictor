@@ -107,14 +107,8 @@ The exchange rate gives the relative value of a currency compared to another. Si
 1) Case Study #1: the 2008 Financial Crisis  <br/>
 The adjustment of exchange rates during the financial crisis was remarkable, let us have a look at it. First, a broad overview of the exchange rates of the US dollar against two major currencies: the Euro, and the Japanese Yen. 
 
-
 <code>get_fluctuations_agg("USD", "EUR", 90, 13, "11-30-2010")</code>
-
-![Fluctuations of USD/EUR during 2007-2008 financial crisis](./images/crisis-rates-USD-EUR-tab.png)
-
 <code>get_fluctuations_agg("USD", "JPY", 90, 13, "11-30-2010")</code>
-
-![Fluctuations of USD/JPY during 2007-2008 financial crisis](./images/crisis-rates-USD-JPY-tab.png)
 
 <p float="left">
   <img src="./images/crisis-rates-USD-EUR-tab.png" alt="Fluctuations of USD/EUR during 2007-2008 financial crisis" width=400/>
