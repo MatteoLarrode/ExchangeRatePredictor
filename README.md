@@ -105,7 +105,7 @@ The exchange rate gives the relative value of a currency compared to another. Si
 - *Economic Performances*: Foreign investors want to invest theur capital in stable countries with strong economic performance. A loss of confidence in a currency because of political and / or economic factors will lead to  movement of capital to the currencies of more stable countries.
 
 
-### Case Study: the 2008 Financial Crisis**
+### Case Study: the 2008 Financial Crisis
 The adjustment of exchange rates during the financial crisis was remarkable, let us have a look at it. First, a broad overview of the exchange rates of the US dollar against two major currencies: the Euro, and the British pound. 
 
 <code>get_fluctuations_agg("USD", "EUR", 90, 13, "11-30-2010")</code> <br/>
