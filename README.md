@@ -111,35 +111,43 @@ The adjustment of exchange rates during the financial crisis was remarkable, let
 
 <p float="left">
   <img src="./images/crisis-rates-USD-EUR-tab.png" alt="Fluctuations of USD/EUR during 2007-2008 financial crisis" width=400/>
-  <img src="/./images/crisis-rates-USD-GBP-tab.png" alt="Fluctuations of USD/GBP during 2007-2008 financial crisis" width=400/> 
+  <img src="./images/crisis-rates-USD-GBP-tab.png" alt="Fluctuations of USD/GBP during 2007-2008 financial crisis" width=400/> 
 </p>
 
 From Lehman's collapse in September 2008 to June 2010, the path of exchange rates seems to have gone through 3 phases. We will see that this path is largely determined by the United States’ status as a safe haven[^1].  
 
 **Phase 1:  September 2008 to March 2009 - The US as a safe haven** <br/>
 <code>print_rates_double("USD", "EUR", "GBP", 300, "03-31-2009")</code>
-<img src="/./images/crisis-phase1.png" alt="Phase 1" width=700/> <br/>
+<img src="./images/crisis-phase1.png" alt="Phase 1" width=700/> <br/>
 
-As seen on the graph, the dollar appraciated against both the Euro and the British Pound in the 6 months that followed Lehman's collapse. This surprising US dollar appreciation in the second half of 2008 can be explained by a range of factors[^2]. Most notably, the concept of safe haven suggests that the US dollar benefited from the global flight to safety into US Treasury bills.
+As seen on the graph, the dollar appreciated against both the Euro and the British Pound in the 6 months that followed Lehman's collapse. This surprising US dollar appreciation in the second half of 2008 can be explained by a range of factors[^2]. Most notably, the concept of safe haven suggests that the US dollar benefited from the global flight to safety into US Treasury bills.
 
 **Phase 2: March 2009 to November 2009 - Confidence returns..** <br/>
 <code>print_rates_double("USD", "EUR", "GBP", 300, "11-30-2009")</code>
-<img src="/./images/crisis-phase2.png" alt="Phase 2" width=700/> <br/>
-"much of the depreciation against the dollar reversed as confidence returned. Over the same period, the dollar depreciated 11.7 percent in effective terms."
+<img src="./images/crisis-phase2.png" alt="Phase 2" width=700/> <br/>
+
+Much of the depreciation of both currencies against the dollar reversed as confidence returned. Over the 9 months following March 2009, exchange rates largely came back to pre-crisis levels in a remarkably orderly way.
 
 **Phase 3: November 2009 to June 2010 - ..but is only temporary** <br/>
 <code>print_rates_double("USD", "EUR", "GBP", 240, "06-15-2010")</code>
-<img src="/./images/crisis-phase3.png" alt="Phase 3" width=700/> <br/>
-"Since November, countries in the Euro area have begun to see depreciation against the dollar resume amidst concerns about the euro, with spillovers into the rest of Europe, and the dollar has appreciated an estimated 3.2 percent"
+<img src="./images/crisis-phase3.png" alt="Phase 3" width=700/> <br/>
 
-**Post-crisis: June 2010 to November 2010 - US Quantitative Easing** <br/>
+However, after November 2009, countries in the Euro area and Great Britain have begun to see depreciation against the dollar resume. The latter was spurred amidst concerns about the euro and pound, with spillovers into the rest of Europe. The US as a 'safe haven' among other factors led a new appreciation of the dollar.
+
+**Post-crisis: June 2010 to November 2010 - The "Currency War"** <br/>
 <code>print_rates_double("USD", "EUR", "GBP", 210, "11-30-2010")</code>
-<img src="/./images/crisis-phase4.png" alt="Phase 4" width=700/> <br/>
+<img src="./images/crisis-phase4.png" alt="Phase 4" width=700/> <br/>
 
 
+<p>
+Finally, with many economies struggling on the offset of the financial crisis, policy makers of many nations took steps to weaken their currencies. This maneuver is meant to bolster export-driven economies by positively influencing their trade balance - imports become more expensive and exports more competitive. This effort to preserve jobs and growth at home can have a destabilizing effect on the balance of world economies still recovering from the shocks of the financial crisis. 
+</p>
 
+The dollar's depreciation, driven by quantitative easing - injection of vast sums of money by the Federal Reserve into the economy to spur growth -, led European policy makers to worry that the resurgent euro would threaten growth in European nations. Moreover, as noted in this [New York Times article](https://www.nytimes.com/2010/10/21/business/global/21dollar.html) "many other currencies, especially in Asia and in emerging markets like Brazil, are soaring as a result of the dollar’s fall. Those nations’ domestic economies are attracting floods of speculative capital seeking higher interest rates and are at risk of overheating." 
 
-*Other currencies* <br/>
+*The dollar falls sharply: USD in Brazilian Real, Indian Rupee, Thai Baht, and South Korean Won:*
+<img src="./images/currency-war.jpg" alt="US Depreciation" width=700/> <br/>
+
 
 ### Case Study #2: Arab Spring countries, political instability & exchange rates
 
@@ -157,8 +165,6 @@ USD - EUR <br/>
 But what interests us in this project are smaller scale variations. We have data on the daily and want to use it to inform everyday life decisions.<br/>
 Let's have a look at fluctuations over days <br/>
 
-[^1]: [Carnegie Endowment for International Peace](https://carnegieendowment.org/2010/02/10/exchange-rates-and-crisis-dog-that-didn-t-bark-pub-24842)
-[^2]: McCauley, R. N., & McGuire, P. (2009). Dollar appreciation in 2008: safe haven, carry trades, dollar shortage and overhedging. BIS Quarterly Review December.
 ## Predicting exchange rates changes
 Having had a broad overview of exchange rates fluctuations at different levels, we can draw lessons about the factors that influence exchange rates. 
 
@@ -179,3 +185,6 @@ First personal project in Python:
     - acquisition of data: using APIs
     - exploratory data analysis: plotting & critical thinking
     - modelling
+
+[^1]: [Carnegie Endowment for International Peace](https://carnegieendowment.org/2010/02/10/exchange-rates-and-crisis-dog-that-didn-t-bark-pub-24842)
+[^2]: McCauley, R. N., & McGuire, P. (2009). Dollar appreciation in 2008: safe haven, carry trades, dollar shortage and overhedging. BIS Quarterly Review December.
