@@ -19,7 +19,7 @@ Skip the implementation details by clicking [here](#analyzing-exchange-rate-fluc
 
 ## Explore exchange rates fluctuations (method)
 ### Pulling the exchange rates
-#### Finding the right API
+**Finding the right API**
 At the basis of this project is data extracted from the web using an API. The criteria guiding the choice of this API include: <br/>
 1. Coverage of most major global currencies
 2. Real-time updates
@@ -36,7 +36,7 @@ A few limits of this API should be underlined:
 1. The range of the timeframe when retriving time-series data is limited to a year. Analysing changes in exchange rates over a perdiod longer than a year will require the aggregation of different API calls. 
 2. My subscription allows for a maximum of 300 daily requests. Although it is enough to perform most tasks for a project of this size, it did prompt require me to work around it in some cases as we will see later.
 
-#### The print_rates() functions
+**The print_rates() functions**
 <p>
 Th print_rates() function makes the API call to fetch the exchange rate of every day in the time period specified by the user, and for a chosen pair of currencies. It then plots a graph showing the evolution of the exchange rate over the chosen time period.
 </p>
@@ -66,7 +66,7 @@ To answer this question, and given the scope and rationale of this project, I wi
 - months: major events that can affect exch. rates over months
 - days: less significant incidents leading to small hiccups of exch. rates
 
-#### The get_fluctuations_agg() function
+**The get_fluctuations_agg() function**
 
 This function is the cornerstone of my study of exchange rates fluctuations. It makes use of the '/fluctuation' endpoint of the API that returns the total change (absolute or in percent) of the exchange rate between two days within a year of one another.
 <p>
@@ -96,14 +96,16 @@ The range of customization of this function is extremely broad. The possibility 
 ## Analyzing exchange rate fluctuations
 The exchange rate gives the relative value of a currency compared to another. Since the end of the Bretton Woods agreement in the 1970s, most countries adopted free-floating currencies, allowing exchange rates to adjust to economic and market developments. They play a vital role in a country's level of trade and, aside from factors such as interest rates and inflation, are among the most important determinants of a country's relative level of economic health. We will look at some of the major forces behind exchange rate movements:
 
-- Differentials in Inflation: countries with higher inflation see their purchasing power decrease relative to other currencies. As a result they typically see depreciation in their currency against the currencies of their trading partners. A gradual and orderly currency depreciation improves a nation’s export competitiveness and may improve its trade deficit over time. However, if too abrupt and/or sizeable, it may scare foreign investors who will then pull portfolio investments out of the country, putting further downward pressure on the currency.
+- *Differentials in Inflation*: countries with higher inflation see their purchasing power decrease relative to other currencies. As a result they typically see depreciation in their currency against the currencies of their trading partners. A gradual and orderly currency depreciation improves a nation’s export competitiveness and may improve its trade deficit over time. However, if too abrupt and/or sizeable, it may scare foreign investors who will then pull portfolio investments out of the country, putting further downward pressure on the currency.
 
-- Differentials in Interest Rates: When interest rates are high, foreign lenders in an economy will get a higher return relative to other countries. This attraction of foreign capital causes the exchange rate to rise: there is appreciation. However, the intricate relationship between interest rates and inflation complicates this simple reasoning. For example, central banks usually raise interest rates in response to rising inflation. But, if inflation rises too quickly, it can devalue a currency quicker than interest rates can compensate foreign investors.
+- *Differentials in Interest Rates*: When interest rates are high, foreign lenders in an economy will get a higher return relative to other countries. This attraction of foreign capital causes the exchange rate to rise: there is appreciation. However, the intricate relationship between interest rates and inflation complicates this simple reasoning. For example, central banks usually raise interest rates in response to rising inflation. But, if inflation rises too quickly, it can devalue a currency quicker than interest rates can compensate foreign investors.
 
-- Economic Performances: Foreign investors want to invest theur capital in stable countries with strong economic performance. A loss of confidence in a currency because of political and / or economic factors will lead to  movement of capital to the currencies of more stable countries.
+- *Current Account Deficits*: A negative balance of trade between a country and its trading partners (= deficit in the current account) means that it requires more foreign currency than it receives through sales of exports, and it supplies more of its own currency than foreigners demand for its products. This excess demand for foreign currency and excess supply in home currency leads to a depreciation of the latter.
+
+- *Economic Performances*: Foreign investors want to invest theur capital in stable countries with strong economic performance. A loss of confidence in a currency because of political and / or economic factors will lead to  movement of capital to the currencies of more stable countries.
 
 
-### Case Study #1: the 2008 Financial Crisis**
+### Case Study: the 2008 Financial Crisis**
 The adjustment of exchange rates during the financial crisis was remarkable, let us have a look at it. First, a broad overview of the exchange rates of the US dollar against two major currencies: the Euro, and the British pound. 
 
 <code>get_fluctuations_agg("USD", "EUR", 90, 13, "11-30-2010")</code> <br/>
@@ -149,31 +151,46 @@ The dollar's depreciation, driven by quantitative easing - injection of vast sum
 <img src="./images/currency-war.jpg" alt="US Depreciation" width=700/> <br/>
 
 
-### Case Study #2: Arab Spring countries, political instability & exchange rates
-
 ### USD - EUR
-- exchange rates over the last decade & months
-- quick overview
+Let us narrow the scope on the USD/EUR pair, as required by the [rationale](#rationale) of this project <br/>
+*Exchange rates over the last year*
 
-Zooming in a little <br/>
+<code>print_rates("USD", "EUR", 365)</code>
+<img src="./images/EUR-USD-year.png" alt="EUR/USD exchange rate over the last year" width=700/> <br/>
 
-USD - EUR <br/>
-- exchange rates over the last months / year
-- quick overview
+Since the end of August, the euro trades at less than a dollar, a two-decade low, and many strategists predict further depreciation. This free fall in euro's value can be partially explained by two main factors.[^3] 
+- First: inflation (increased by war in Ukraine which affected less the US)
+- Second: US consistently increasing interest: makes investments in the US dollar area more attractive)
+    - 'safe haven', especially at times of war 
 
+<p>
+Euro's loss in value puts the European Central Bank in a tough situation. Dilemma: </br>
+Increase interest rates: reduce inflation & improve currency competitiveness </br>
+BUT eurozone’s anaemic growth growth would benefit from low interest rates </br>
+Vicious circle:  depreciation in euro is making the inflation problem by making imported goods in the eurozone more expensive </br>
+</p>
+<p>
+Only potential upside of a weak euro is a possible surge in exports to slow down the economic slowdown some European countries, most notably Germany and France. Germany was already enjoying a high current account surplus; a weaker euro should improve their competitiveness.
+</p>
 
-But what interests us in this project are smaller scale variations. We have data on the daily and want to use it to inform everyday life decisions.<br/>
-Let's have a look at fluctuations over days <br/>
+<p>
+The main objective of this project is to study exchange rate variations on a short-term. We have data on the daily and want to use it to inform everyday life decisions. Could we find, even in this general depreciation of the euro compared to the dollar, patterns of upswings that we could take advantage of to transfer my allowance?
+</p>
 
 ## Predicting exchange rates changes
-Having had a broad overview of exchange rates fluctuations at different levels, we can draw lessons about the factors that influence exchange rates. 
+As we have seen in these brief study cases of exchange rate fluctuations, many complex and interconnected factors influence them. 
 
 ### ARIMA model: use historical data
-Analysis of time series - but LIMITATIONS
+Analysis of time series 
 
-### Include other dependent variables: using EDA takeawaya
+**Limitations**
 
-## Potential follow-ups
+### Potential follow-ups
+*Include other dependent variables: using EDA takeaways*
+- inflation
+- interest rates
+- trade balance
+- other factors of economic performance: political regimes, events etc..
 
 
 ## Personal takeaways from this project
@@ -188,3 +205,4 @@ First personal project in Python:
 
 [^1]: [Carnegie Endowment for International Peace](https://carnegieendowment.org/2010/02/10/exchange-rates-and-crisis-dog-that-didn-t-bark-pub-24842)
 [^2]: McCauley, R. N., & McGuire, P. (2009). Dollar appreciation in 2008: safe haven, carry trades, dollar shortage and overhedging. BIS Quarterly Review December.
+[^3]: [Al Jazeera](https://www.aljazeera.com/news/2022/7/13/what-prompted-euros-parity-with-us-dollar-and-whats-its-impact)
