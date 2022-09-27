@@ -103,8 +103,7 @@ The exchange rate gives the relative value of a currency compared to another. Si
 - Economic Performances: Foreign investors want to invest theur capital in stable countries with strong economic performance. A loss of confidence in a currency because of political and / or economic factors will lead to  movement of capital to the currencies of more stable countries.
 
 
-### Mid to Long-run
-1) **Case Study #1: the 2008 Financial Crisis**  <br/>
+### Case Study #1: the 2008 Financial Crisis**
 The adjustment of exchange rates during the financial crisis was remarkable, let us have a look at it. First, a broad overview of the exchange rates of the US dollar against two major currencies: the Euro, and the British pound. 
 
 <code>get_fluctuations_agg("USD", "EUR", 90, 13, "11-30-2010")</code> <br/>
@@ -112,36 +111,39 @@ The adjustment of exchange rates during the financial crisis was remarkable, let
 
 <p float="left">
   <img src="./images/crisis-rates-USD-EUR-tab.png" alt="Fluctuations of USD/EUR during 2007-2008 financial crisis" width=400/>
-  <img src="/./images/crisis-rates-USD-JPY-tab.png" alt="Fluctuations of USD/GBP during 2007-2008 financial crisis" width=400/> 
+  <img src="/./images/crisis-rates-USD-GBP-tab.png" alt="Fluctuations of USD/GBP during 2007-2008 financial crisis" width=400/> 
 </p>
 
-*Phase 1:  September 2008 to March 2009 - US as a safe haven* <br/>
-<code>print_rates_double("USD", "EUR", "GBP", 300, "03-31-2009")</code>
- <img src="/./images/crisis-phase1.png" alt="Phase 1" width=700/> 
-"most currencies depreciated against the dollar as investors sought a safe haven, and the dollar appreciated 13.6 percent in nominal effective terms. Effective exchange rates are a trade-weighted average of a country’s bilateral exchange rates with its main trading partners."
+From Lehman's collapse in September 2008 to June 2010, the path of exchange rates seems to have gone through 3 phases. We will see that this path is largely determined by the United States’ status as a safe haven[^1].  
 
-*Phase 2: March 2009 to November 2009 - Confidence returns..* <br/>
+**Phase 1:  September 2008 to March 2009 - The US as a safe haven** <br/>
+<code>print_rates_double("USD", "EUR", "GBP", 300, "03-31-2009")</code>
+<img src="/./images/crisis-phase1.png" alt="Phase 1" width=700/> <br/>
+
+As seen on the graph, the dollar appraciated against both the Euro and the British Pound in the 6 months that followed Lehman's collapse. This surprising US dollar appreciation in the second half of 2008 can be explained by a range of factors[^2]. Most notably, the concept of safe haven suggests that the US dollar benefited from the global flight to safety into US Treasury bills.
+
+**Phase 2: March 2009 to November 2009 - Confidence returns..** <br/>
 <code>print_rates_double("USD", "EUR", "GBP", 300, "11-30-2009")</code>
-<img src="/./images/crisis-phase1.png" alt="Phase 2" width=700/> 
+<img src="/./images/crisis-phase2.png" alt="Phase 2" width=700/> <br/>
 "much of the depreciation against the dollar reversed as confidence returned. Over the same period, the dollar depreciated 11.7 percent in effective terms."
 
-*Phase 3: November 2009 to June 2010 - ..but is only temporary* <br/>
+**Phase 3: November 2009 to June 2010 - ..but is only temporary** <br/>
 <code>print_rates_double("USD", "EUR", "GBP", 240, "06-15-2010")</code>
-<img src="/./images/crisis-phase3.png" alt="Phase 3" width=700/> 
+<img src="/./images/crisis-phase3.png" alt="Phase 3" width=700/> <br/>
 "Since November, countries in the Euro area have begun to see depreciation against the dollar resume amidst concerns about the euro, with spillovers into the rest of Europe, and the dollar has appreciated an estimated 3.2 percent"
 
-*Phase 4: June 2010 to November 2010 - US Quantitative Easing* <br/>
+**Post-crisis: June 2010 to November 2010 - US Quantitative Easing** <br/>
 <code>print_rates_double("USD", "EUR", "GBP", 210, "11-30-2010")</code>
-<img src="/./images/crisis-phase4.png" alt="Phase 4" width=700/> 
+<img src="/./images/crisis-phase4.png" alt="Phase 4" width=700/> <br/>
 
 
--> "Most exchange rates have followed a path largely determined by the United States’ status as a safe haven."
+
 
 *Other currencies* <br/>
 
-2) **Case Study #2: Arab Spring countries, political instability & exchange rates** <br/>
+### Case Study #2: Arab Spring countries, political instability & exchange rates
 
-3) **USD - EUR** <br/>
+### USD - EUR
 - exchange rates over the last decade & months
 - quick overview
 
@@ -155,14 +157,8 @@ USD - EUR <br/>
 But what interests us in this project are smaller scale variations. We have data on the daily and want to use it to inform everyday life decisions.<br/>
 Let's have a look at fluctuations over days <br/>
 
-### Short-run
-
-1) Interesting examples <br/>
-- historical examples (tweets, events, elections)
-
-
-2) USD - EUR: Biggest fluctuations recently (+ tourist season?) <br/>
-
+[^1]: [Carnegie Endowment for International Peace](https://carnegieendowment.org/2010/02/10/exchange-rates-and-crisis-dog-that-didn-t-bark-pub-24842)
+[^2]: McCauley, R. N., & McGuire, P. (2009). Dollar appreciation in 2008: safe haven, carry trades, dollar shortage and overhedging. BIS Quarterly Review December.
 ## Predicting exchange rates changes
 Having had a broad overview of exchange rates fluctuations at different levels, we can draw lessons about the factors that influence exchange rates. 
 
