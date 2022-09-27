@@ -116,15 +116,23 @@ The adjustment of exchange rates during the financial crisis was remarkable, let
 </p>
 
 *Phase 1:  September 2008 to March 2009 - US as a safe haven* <br/>
+<code>print_rates_double("USD", "EUR", "GBP", 300, "03-31-2009")</code>
+ <img src="/./images/crisis-phase1.png" alt="Phase 1" width=700/> 
 "most currencies depreciated against the dollar as investors sought a safe haven, and the dollar appreciated 13.6 percent in nominal effective terms. Effective exchange rates are a trade-weighted average of a country’s bilateral exchange rates with its main trading partners."
 
 *Phase 2: March 2009 to November 2009 - Confidence returns..* <br/>
+<code>print_rates_double("USD", "EUR", "GBP", 300, "11-30-2009")</code>
+<img src="/./images/crisis-phase1.png" alt="Phase 2" width=700/> 
 "much of the depreciation against the dollar reversed as confidence returned. Over the same period, the dollar depreciated 11.7 percent in effective terms."
 
 *Phase 3: November 2009 to June 2010 - ..but is only temporary* <br/>
+<code>print_rates_double("USD", "EUR", "GBP", 240, "06-15-2010")</code>
+<img src="/./images/crisis-phase3.png" alt="Phase 3" width=700/> 
 "Since November, countries in the Euro area have begun to see depreciation against the dollar resume amidst concerns about the euro, with spillovers into the rest of Europe, and the dollar has appreciated an estimated 3.2 percent"
 
 *Phase 4: June 2010 to November 2010 - US Quantitative Easing* <br/>
+<code>print_rates_double("USD", "EUR", "GBP", 210, "11-30-2010")</code>
+<img src="/./images/crisis-phase4.png" alt="Phase 4" width=700/> 
 
 
 -> "Most exchange rates have followed a path largely determined by the United States’ status as a safe haven."

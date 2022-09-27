@@ -66,6 +66,7 @@ def print_rates_double(base, currency1, currency2, amount_of_days, end_day = Non
   plt.grid(axis='y', lw = '0.5')
   plt.xlabel("")
   plt.title (f"Exchange rate of the {base}/{currency1} and {base}/{currency2} pairs and from {start_date} to {end_date}")
+  plt.savefig('./images/rates2.png')
   plt.show()
 
   return
