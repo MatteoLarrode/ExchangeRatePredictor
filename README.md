@@ -42,13 +42,13 @@ Th print_rates() function makes the API call to fetch the exchange rate of every
 </p>
 
 Parameters of the function:
-- 'base': base currency [e.g. 'USD']
-- 'currency1': quote currency [e.g. 'EUR']
+- <code>base</code>: base currency [e.g. 'USD']
+- <code>currency1</code>: quote currency [e.g. 'EUR']
     - the currrency code must be included in quotation marks
     - the list of supported currency codes is available [here](https://fixer.io/symbols)
-- 'amount_of_days': length of the time period examined in days [e.g. 30]
+- <code>amount_of_days</code>: length of the time period examined in days [e.g. 30]
     - maximum = 365
-- 'end_day' (optional): end of the time period examined [e.g. '07-03-2001']
+- <code>end_day</code> (optional): end of the time period examined [e.g. '07-03-2001']
     - if no end date is provided, it is assigned to the date at which the program is run
     - format (including the quotation marks): 'mm-dd-yyyy'
 
@@ -67,19 +67,20 @@ By combining this functionality with a 'for' loop, the function returns a histor
 </p>
 
 Parameters of the function:
-- 'base': base currency [e.g. 'USD']
-- 'currency1': quote currency [e.g. 'EUR']
+- <code>base</code>: base currency [e.g. 'USD']
+- <code>currency1</code>: quote currency [e.g. 'EUR']
     - the currrency code must be included in quotation marks
     - the list of supported currency codes is available [here](https://fixer.io/symbols)
-- 'interval': span of the time interval in days 
+- <code>interval</code>: span of the time interval in days 
     - maximum = 365
-- 'timeframe': number of time the interval is repeated
-- 'end_day' (optional): end of the time period examined [e.g. '07-03-2001']
+- <code>timeframe</code>: number of time the interval is repeated
+- <code>end_day</code> (optional): end of the time period examined [e.g. '07-03-2001']
     - if no end date is provided, it is assigned to the date at which the program is run
     - format (including the quotation marks): 'mm-dd-yyyy'
 
 <p>
-Example of use: get_fluctuations_agg("USD", "EUR", 90, 6) will return the change of exchange rate between US dollar and euro at the end of every trimester over the last 2 years (= 6 trimesters).
+
+*Example of use*: <code>get_fluctuations_agg("USD", "EUR", 90, 6)</code> will return the change of exchange rate between US dollar and euro at the end of every trimester over the last 2 years (= 6 trimesters).
 </p>
 
 <p>
