@@ -147,7 +147,6 @@ The dollar's depreciation, driven by quantitative easing - injection of vast sum
 
 ### USD - EUR
 Let us narrow the scope on the USD/EUR pair, as required by the [rationale](#rationale) of this project <br/>
-*Exchange rates over the last year*
 
 <code>print_rates("USD", "EUR", 365)</code>
 <img src="./images/EUR-USD-year.png" alt="EUR/USD exchange rate over the last year" width=700/> <br/>
@@ -183,7 +182,7 @@ We want to analyse time-series data which is a series of values (here exchange r
 - **seasonality**: patterns or cycles that repeat over time </br>
 
 <p>
-Many models used for forecasting exploit these characteristics. Trained on historical data, they use trends and patterns, to produce short or long-term predictions. Because those models are based on algorithms that are trained and 'learn' from past data to predict future values, they are considered as part of machine learning (ML).
+Many models used for forecasting exploit these characteristics. Trained on historical data, they use trends and patterns, to produce short or long-term predictions. Because those models are based on algorithms that 'learn' from past data to predict future values, they are considered as part of machine learning (ML).
 </p>
 
 There are two types of time-series:
@@ -195,10 +194,9 @@ There are two types of time-series:
 Furthermore, time-series models can be broadly classified into two categories:
 - *Traditional Time-series models*:
     - Univariate models: e.g. ARIMA (& SARIMA), Exponential Smoothing (ES), Long Short-Term Memory (LSTM), Facebook's Prophet (& NeuralProphet)
-    - Multivariate: e.g. Vector Autoregression
+    - Multivariate models: e.g. Vector Autoregression
 - *Regression models*: on the contrary of traditional models that are recursive (can predict the variable over extended periods of time), regression models make predictions directly depending on the horizon. They use independent variables found in the training data to predict the dependent variable on a certain date.
     - e.g. Neural Network Regressor, Catboost Regressor...
-
 
 
 **Which method to choose for the prediction of exchange rates?** </br>
