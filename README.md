@@ -160,7 +160,7 @@ Since the end of August, the euro trades at less than a dollar, a two-decade low
 
 Euro's loss in value puts the European Central Bank in a tough situation. The ECB faces a dilemma: </br>
 - Increasing interest rates would help reduce inflation & improve currency competitiveness </br>
-- BUT the eurozone’s anaemic growth would benefit from low interest rates </br>
+- BUT the eurozone’s anaemic growth would benefit from low interest rates. </br>
 </p>
 
 <p>
@@ -169,7 +169,8 @@ The only potential upside of a weak euro is a possible surge in exports that cou
 
 <p>
 
-The main objective of this project is to study exchange rate variations on a short-term. We have data on the daily and want to use it to inform everyday life decisions. **Could we find, even in this general depreciation of the euro compared to the dollar, patterns of upswings that we could take advantage of to transfer my allowance?**
+The main objective of this project is to study exchange rate variations on a short-term. We have data on the daily and want to use it to inform everyday life decisions. </br>
+**Could we find, even in this general depreciation of the euro compared to the dollar, patterns of upswings that we could take advantage of to transfer my allowance?**
 </p>
 
 ## Predicting exchange rates changes
@@ -177,36 +178,38 @@ The main objective of this project is to study exchange rate variations on a sho
 
 <p>
 
-We want to analyse time-series data which is a series of values - here exchange rates - obtained at successive times. Time-series data often displays two major characteristics: 
-- trend: long-term movement of a time series
-- seasonality: patterns or cycles that repeat over time </br>
+We want to analyse time-series data which is a series of values (here exchange rates) obtained at successive times. Time-series data often displays two major characteristics: 
+- **trend**: long-term movement of a time series
+- **seasonality**: patterns or cycles that repeat over time </br>
+
+<p>
 Many models used for forecasting exploit these characteristics. Trained on historical data, they use trends and patterns, to produce short or long-term predictions. Because those models are based on algorithms that are trained and 'learn' from past data to predict future values, they are considered as part of machine learning (ML).
 </p>
 
 There are two types of time-series:
-- Univariate: only one variable is varying over time
-- Multivariate: multiple variables are varying over time </br>
+- *Univariate*: only one variable is varying over time
+- *Multivariate*: multiple variables are varying over time </br>
 
 <p>
 
 Furthermore, time-series models can be broadly classified into two categories:
-- Traditional Time-series models:
-    - Univariate models: ARIMA (& SARIMA), Exponential Smoothing (ES), Long Short-Term Memory (LSTM), Facebook's Prophet (& NeuralProphet)
-    - Multivariate: Vector Autoregression
-- Regression models: on the contrary of traditional models that are recursive (can predict the variable over extended periods of time), regression models make predictions directly depending on the horizon. They use independent variables found in the training data to predict the dependent variable on a certain date.
+- *Traditional Time-series models*:
+    - Univariate models: e.g. ARIMA (& SARIMA), Exponential Smoothing (ES), Long Short-Term Memory (LSTM), Facebook's Prophet (& NeuralProphet)
+    - Multivariate: e.g. Vector Autoregression
+- *Regression models*: on the contrary of traditional models that are recursive (can predict the variable over extended periods of time), regression models make predictions directly depending on the horizon. They use independent variables found in the training data to predict the dependent variable on a certain date.
     - e.g. Neural Network Regressor, Catboost Regressor...
 
 
 
 **Which method to choose for the prediction of exchange rates?** </br>
 The choice of model was guided by the following questions: </br>
-- *Is a univariate or a multivariate time series forecasting problem?* </br>
-- *How accurate should the model be?* </br>
+- *Am I facing a univariate or multivariate time series forecasting problem?* </br>
+- *How accurate do I want the model to be?* </br>
 - *How much volume of data is available?* </br>
 - *What is the time horizon of predictions required?* </br>
 
 <p>
-The time-series data I am working with is univariate: the exchange rate is the only variable that varies over time. Vector Autoregression models are therefore inappropriate. So are standard machine learning regression models, especially because I want to be able to predict exchanges rates in a medium-run horizon, not on a precise date. We are left with traditional time-series univariate models. Among them, Prophet is the most fitting to my data and objectives. It performs well and is also notoriously easier to implement and better tailored for users that are not experts in time-series analysis. 
+The time-series data I am working with is univariate: the exchange rate is the only variable that varies over time. Vector Autoregression models are therefore inappropriate. So are standard machine learning regression models, especially because I want to be able to predict exchanges rates in a medium-run horizon, not on a precise date. We are left with traditional time-series univariate models. Among them, Prophet is the most fitting to my data and objectives. It performs well and is also notoriously easier to implement and better tailored for users that are not experts in time-series analysis than its counterparts.
 </p>
 
 ### Prophet: predicting time-series data using machine learning
