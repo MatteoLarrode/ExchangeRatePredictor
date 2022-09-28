@@ -159,34 +159,68 @@ Let us narrow the scope on the USD/EUR pair, as required by the [rationale](#rat
 <img src="./images/EUR-USD-year.png" alt="EUR/USD exchange rate over the last year" width=700/> <br/>
 
 Since the end of August, the euro trades at less than a dollar, a two-decade low, and many strategists predict further depreciation. This free fall in euro's value can be partially explained by two main factors.[^3] 
-- First: inflation (increased by war in Ukraine which affected less the US)
-- Second: US consistently increasing interest: makes investments in the US dollar area more attractive)
-    - 'safe haven', especially at times of war 
+- First, inflation in the eurozone, which averaged 8.6 percent in June. The Russia-Ukraine conflict significantly increasing energy prices in Europe, while the US, given its oil reserve and use of alternative sources of energy, stays relatively immune, will only reinforce this US dollar appreciation relative to the euro.
+- Second, the US Fed consistently increasing its interest rates, making investments in the US dollar area more attractive. Once again, the US currency benefits from its status as a 'safe haven', especially at times of war. 
 
 <p>
-Euro's loss in value puts the European Central Bank in a tough situation. Dilemma: </br>
-Increase interest rates: reduce inflation & improve currency competitiveness </br>
-BUT eurozone’s anaemic growth growth would benefit from low interest rates </br>
-Vicious circle:  depreciation in euro is making the inflation problem by making imported goods in the eurozone more expensive </br>
-</p>
-<p>
-Only potential upside of a weak euro is a possible surge in exports to slow down the economic slowdown some European countries, most notably Germany and France. Germany was already enjoying a high current account surplus; a weaker euro should improve their competitiveness.
+
+Euro's loss in value puts the European Central Bank in a tough situation. The ECB faces a dilemma: </br>
+- Increasing interest rates would help reduce inflation & improve currency competitiveness </br>
+- BUT the eurozone’s anaemic growth would benefit from low interest rates </br>
 </p>
 
 <p>
-The main objective of this project is to study exchange rate variations on a short-term. We have data on the daily and want to use it to inform everyday life decisions. Could we find, even in this general depreciation of the euro compared to the dollar, patterns of upswings that we could take advantage of to transfer my allowance?
+The only potential upside of a weak euro is a possible surge in exports that could slow down the economic stagnation of some European countries, most notably Germany and France. Germany was already enjoying a high current account surplus; a weaker euro could improve their competitiveness.
+</p>
+
+<p>
+
+The main objective of this project is to study exchange rate variations on a short-term. We have data on the daily and want to use it to inform everyday life decisions. **Could we find, even in this general depreciation of the euro compared to the dollar, patterns of upswings that we could take advantage of to transfer my allowance?**
 </p>
 
 ## Predicting exchange rates changes
-As we have seen in these brief study cases of exchange rate fluctuations, many complex and interconnected factors influence them. 
+**How does time-series prediction work?** </br>
 
-### ARIMA model: use historical data
-Analysis of time series 
+<p>
+
+We want to analyse time-series data which is a series of values - here exchange rates - obtained at successive times. Time-series data often displays two major characteristics: 
+- trend: long-term movement of a time series
+- seasonality: patterns or cycles that repeat over time </br>
+Many models used for forecasting exploit these characteristics. Trained on historical data, they use trends and patterns, to produce short or long-term predictions. Because those models are based on algorithms that are trained and 'learn' from past data to predict future values, they are considered as part of machine learning (ML).
+</p>
+
+There are two types of time-series:
+- Univariate: only one variable is varying over time
+- Multivariate: multiple variables are varying over time </br>
+
+<p>
+
+Furthermore, time-series models can be broadly classified into two categories:
+- Traditional Time-series models:
+    - Univariate models: ARIMA (& SARIMA), Exponential Smoothing (ES), Long Short-Term Memory (LSTM), Facebook's Prophet (& NeuralProphet)
+    - Multivariate: Vector Autoregression
+- Regression models: on the contrary of traditional models that are recursive (can predict the variable over extended periods of time), regression models make predictions directly depending on the horizon. They use independent variables found in the training data to predict the dependent variable on a certain date.
+    - e.g. Neural Network Regressor, Catboost Regressor...
+
+
+
+**Which method to choose for the prediction of exchange rates?** </br>
+The choice of model was guided by the following questions: </br>
+- *Is a univariate or a multivariate time series forecasting problem?* </br>
+- *How accurate should the model be?* </br>
+- *How much volume of data is available?* </br>
+- *What is the time horizon of predictions required?* </br>
+
+<p>
+The time-series data I am working with is univariate: the exchange rate is the only variable that varies over time. Vector Autoregression models are therefore inappropriate. So are standard machine learning regression models, especially because I want to be able to predict exchanges rates in a medium-run horizon, not on a precise date. We are left with traditional time-series univariate models. Among them, Prophet is the most fitting to my data and objectives. It performs well and is also notoriously easier to implement and better tailored for users that are not experts in time-series analysis. 
+</p>
+
+### Prophet: predicting time-series data using machine learning
 
 **Limitations**
 
 ### Potential follow-ups
-*Include other dependent variables: using EDA takeaways*
+*Using more complex models: Include other dependent variables using EDA takeaways -> Multivariate models*
 - inflation
 - interest rates
 - trade balance
@@ -197,9 +231,11 @@ Analysis of time series
 First personal project in Python:
 - libraries: requests, matplotlib, pandas, dateteime
 - working with dictionaries, dataframes, plots
-- data: TIME-SERIES & operations on it 
+- data: TIME-SERIES
+    - plotting
+    - predictions
 - data pipeline process
-    - acquisition of data: using APIs
+    - acquisition of data: web-scraping using APIs
     - exploratory data analysis: plotting & critical thinking
     - modelling
 
