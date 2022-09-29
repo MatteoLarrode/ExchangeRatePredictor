@@ -219,7 +219,7 @@ The time-series data I am working with is univariate: the exchange rate is the o
 Having introduced the model, let us jump right into its implementation. The <code>forecast(df, ci, period)</code> function receives 3 arguments:
 
 - <code>df</code>: pandas dataframe that contains two columns: exchange rates, and the dates over which they are measured (in datetime format)
-    - the <code>get_rates()<code> function detailed earlier allows to get this dataframe over any number of days (less than a year)
+    - the <code>get_rates()</code> function detailed earlier allows to get this dataframe over any number of days (less than a year)
 - <code>period</code>: number of days in the future for which exchange rates should be forecast
 - <code>ci</code> (optional): confidence interval for the forecast (displayed on the graph as the blue area)
     - default value: 0.95 (95%)
