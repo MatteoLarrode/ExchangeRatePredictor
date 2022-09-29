@@ -41,6 +41,7 @@ def get_rates(base, currency1, amount_of_days, end_day = None):
   return df_result
 
 
+
 def print_rates(base, currency1, amount_of_days, end_day = None):
   df_result = get_rates(base, currency1, amount_of_days, end_day = None)
 

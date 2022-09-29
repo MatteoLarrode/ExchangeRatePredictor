@@ -1,11 +1,11 @@
-import pandas as pd
+import pandas
 import matplotlib.pyplot as plt
 from prophet import Prophet
 
 from rates import get_rates
 
 #dataset: EUR/USD over the last year 
-data = get_rates("EUR", "USD", 365)
+data = get_rates("EUR", "USD", 60)
 data.columns = ['ds', 'y']
 
 # input to Prophet is always a pandas.dataframe with two columns: ds and y. 
@@ -26,22 +26,30 @@ def forecast(df, ci, period):
     figsize=(10, 6)
     fig = plt.figure(facecolor='w', figsize=figsize)
     ax = fig.add_subplot(111)
+    plt.title(f"Forecast exchange rates over the next {period} days [Confidence Interval: {ci*100}%]")
 
     #plot the black dots which indicate the data points used to train the model.
     fcst_t = forecast['ds'].dt.to_pydatetime()
     ax.plot(model.history['ds'].dt.to_pydatetime(), model.history['y'], 'k.')
 
-    #plot predictions
+    #plot predictions & confidence interval
     ax.plot(fcst_t, forecast['yhat'], ls='-', c='#0072B2')
-
-    #add confidence interval
     ax.fill_between(fcst_t, forecast['yhat_lower'], forecast['yhat_upper'], color='#0072B2', alpha=0.2)
+
+    #save graph
+    plt.savefig('./images/forecast.png')
+
+    #plot compenents (different types of seasonality)
+    model.plot_components(forecast)
+    plt.savefig('./images/components.png')
 
     plt.show()
 
     return forecast
 
 
-forecast(data, 0.8, 60)
+forecast_df = forecast(data, 0.8, 10)
+
+
 
 
