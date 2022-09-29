@@ -212,12 +212,19 @@ The time-series data I am working with is univariate: the exchange rate is the o
 
 ### Prophet: predicting time-series data using machine learning
 
-[Facebook Prophet](https://facebook.github.io/prophet/) is an open-source algorithm for generating univariate time-series models. As explained in their Github [Page](https://github.com/facebook/prophet), "is a procedure for forecasting time series data based on an additive model where non-linear trends are fit with yearly, weekly, and daily seasonality, plus holiday effects." Moreover, "it works best with time series that have strong seasonal effects and several seasons of historical data." The documentation claims that "Prophet is robust to missing data and shifts in the trend, and typically handles outliers well."  At its core is the sum of three functions of time plus an error term: growth g(t), seasonality s(t), holidays h(t) , and error e~t~ :
+[Facebook Prophet](https://facebook.github.io/prophet/) is an open-source algorithm for generating univariate time-series models. As explained in their Github [Page](https://github.com/facebook/prophet), "is a procedure for forecasting time series data based on an additive model where non-linear trends are fit with yearly, weekly, and daily seasonality, plus holiday effects." Moreover, "it works best with time series that have strong seasonal effects and several seasons of historical data." The documentation claims that "Prophet is robust to missing data and shifts in the trend, and typically handles outliers well."  At its core is the sum of three functions of time plus an error term: growth g(t), seasonality s(t), holidays h(t) , and error e_t :
 - $$y(t) = g(t) + s(t) + h(t) + e_t$$
 
 <p>
-Having introduced the model, let us jump right into its implementation
+Having introduced the model, let us jump right into its implementation. The <code>forecast(df, ci, period)</code> function receives 3 arguments:
+
+- <code>df</code>: pandas dataframe that contains two columns: exchange rates, and the dates over which they are measured (in datetime format)
+    - the <code>get_rates()<code> function detailed earlier allows to get this dataframe over any number of days (less than a year)
+- <code>period</code>: number of days in the future for which exchange rates should be forecast
+- <code>ci</code> (optional): confidence interval for the forecast (displayed on the graph as the blue area)
+    - default value: 0.95 (95%)
 </p>
+
 
 
 

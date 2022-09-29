@@ -1,4 +1,3 @@
-import pandas
 import matplotlib.pyplot as plt
 from prophet import Prophet
 
@@ -10,7 +9,7 @@ data.columns = ['ds', 'y']
 
 # input to Prophet is always a pandas.dataframe with two columns: ds and y. 
 # The ds (datestamp) column should be of a format expected by Pandas, ideally YYYY-MM-DD for a date
-def forecast(df, ci, period):
+def forecast(df, period, ci = 0.95):
     data = df
 
     #train model (5% confidence interval)
@@ -48,7 +47,7 @@ def forecast(df, ci, period):
     return forecast
 
 
-forecast_df = forecast(data, 0.8, 10)
+forecast_df = forecast(data, 10, 0.8)
 
 
 
