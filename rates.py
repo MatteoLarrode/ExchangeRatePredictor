@@ -7,8 +7,7 @@ from matplotlib.ticker import NullFormatter
 
 from config import api_key
 
-def print_rates(base, currency1, amount_of_days, end_day = None):
-
+def get_rates(base, currency1, amount_of_days, end_day = None):
   #if end date provided: turn it into datetime format
   if end_day is not None:
     end_date = datetime.datetime.strptime(end_day, '%m-%d-%Y').date()
@@ -38,6 +37,19 @@ def print_rates(base, currency1, amount_of_days, end_day = None):
 
   df_result = pd.DataFrame({"time": list(rate_history.keys()), "rate": list(rate_history.values())})
   df_result["time"] = pd.to_datetime(df_result["time"])
+
+  return df_result
+
+
+def print_rates(base, currency1, amount_of_days, end_day = None):
+  df_result = get_rates(base, currency1, amount_of_days, end_day = None)
+
+  #need local start & end day for plot title
+  if end_day is not None:
+    end_date = datetime.datetime.strptime(end_day, '%m-%d-%Y').date()
+  else:
+      end_date = datetime.datetime.now().date()
+  start_date = (end_date - datetime.timedelta(days = 1 * amount_of_days))
 
   #plot exchange rates
   fig, ax = plt.subplots()
