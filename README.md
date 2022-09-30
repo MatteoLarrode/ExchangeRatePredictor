@@ -234,7 +234,7 @@ Having introduced the model, let us jump right into its implementation. The <cod
 **Limitations**
 
 ### Potential follow-ups
-**Improving the accuracy of the model**: a multivariate model could include other dependent variables, chosen using the exploratory data analysis takeaways. Such variables could include:
+**Improving the accuracy of the model**: a multivariate model could include other variables varying over time, chosen using the exploratory data analysis takeaways. Such variables could include:
 - inflation
 - interest rates
 - trade balance
@@ -267,7 +267,7 @@ This project allowed me to use a variety of tools across all the steps of a mach
 <p>
 
 *Forecasting with Machine Learning*</br>
-- Python libraries: matplotlib, datetime
+- Python libraries: prophet
 - Make informed and justified choices about the model
 - Think critically about the results of the model, its limitations, how it could be improved
 </p>
