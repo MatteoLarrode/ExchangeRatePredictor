@@ -212,43 +212,66 @@ The time-series data I am working with is univariate: the exchange rate is the o
 
 ### Prophet: predicting time-series data using machine learning
 
-[Facebook Prophet](https://facebook.github.io/prophet/) is an open-source algorithm for generating univariate time-series models. As explained in their Github [Page](https://github.com/facebook/prophet), "is a procedure for forecasting time series data based on an additive model where non-linear trends are fit with yearly, weekly, and daily seasonality, plus holiday effects." Moreover, "it works best with time series that have strong seasonal effects and several seasons of historical data." The documentation claims that "Prophet is robust to missing data and shifts in the trend, and typically handles outliers well."  At its core is the sum of three functions of time plus an error term: growth g(t), seasonality s(t), holidays h(t) , and error e_t :
+[Facebook Prophet](https://facebook.github.io/prophet/) is an open-source algorithm for generating univariate time-series models. As explained in their [Github Page](https://github.com/facebook/prophet), "is a procedure for forecasting time series data based on an additive model where non-linear trends are fit with yearly, weekly, and daily seasonality, plus holiday effects." The documentation claims that "Prophet is robust to missing data and shifts in the trend, and typically handles outliers well."  At its core is the sum of three functions of time:growth g(t), seasonality s(t), holidays h(t), plus an error term
 - $$y(t) = g(t) + s(t) + h(t) + e_t$$
 
 <p>
 Having introduced the model, let us jump right into its implementation. The <code>forecast(df, ci, period)</code> function receives 3 arguments:
 
 - <code>df</code>: pandas dataframe that contains two columns: exchange rates, and the dates over which they are measured (in datetime format)
-    - the <code>get_rates()</code> function detailed earlier allows to get this dataframe over any number of days (less than a year)
-- <code>period</code>: number of days in the future for which exchange rates should be forecast
+    - the <code>get_rates()</code> function detailed earlier allows to get this dataframe over any number of days (< 365)
+- <code>period</code>: number of days in the future for which exchange rates are forecast
 - <code>ci</code> (optional): confidence interval for the forecast (displayed on the graph as the blue area)
     - default value: 0.95 (95%)
 </p>
 
 
 
+<img src="./images/forecast1.png" alt="Forecast #1" width=700/> <br/>
+<img src="./images/forecast2.png" alt="Forecast #2" width=700/> <br/>
+
 
 **Limitations**
 
 ### Potential follow-ups
-*Using more complex models: Include other dependent variables using EDA takeaways -> Multivariate models*
+**Improving the accuracy of the model**: a multivariate model could include other dependent variables, chosen using the exploratory data analysis takeaways. Such variables could include:
 - inflation
 - interest rates
 - trade balance
 - other factors of economic performance: political regimes, events etc..
 
+**Improving data visualization**: many of the functions created in this project have a broad range of customization; dates, currencies, confidence interval among others. A web application would allow users to make full use of this customization. They could access historical and predicted exchange rates for over 150 currencies in a couple of clicks.
 
-## Personal takeaways from this project
-First personal project in Python:
-- libraries: requests, matplotlib, pandas, dateteime
-- working with dictionaries, dataframes, plots
-- data: TIME-SERIES
-    - plotting
-    - predictions
-- data pipeline process
-    - acquisition of data: web-scraping using APIs
-    - exploratory data analysis: plotting & critical thinking
-    - modelling
+## Personal takeaways & skills developed
+*Tools & Data Analysis*</br>
+This project allowed me to use a variety of tools across all the steps of a machine learning analysis of time-series data in Python. Being able to work with this type of data is extremely valuable. Time-series are central in a lot of domains, from investment banking models to climate change forecasting, through sales predictions for businesses and many others.
+
+<p>
+
+*Data Collection & Preparation*</br>
+- Python libraries: requests, pandas
+- Web-scraping using APIs
+- Working with dictionaries, dataframes, using loops
+- Thinking outside of the box and looking for the best resources to solve problems 
+</p>
+
+<p>
+
+*Exploratory Data Analysis*</br>
+- Python libraries: matplotlib.plotly, datetime
+- Think critically about data  
+- Creating informative and appealing plots
+- Communicating findings clearly and concisely
+</p>
+
+<p>
+
+*Forecasting with Machine Learning*</br>
+- Python libraries: matplotlib, datetime
+- Make informed and justified choices about the model
+- Think critically about the results of the model, its limitations, how it could be improved
+</p>
+
 
 [^1]: [Carnegie Endowment for International Peace](https://carnegieendowment.org/2010/02/10/exchange-rates-and-crisis-dog-that-didn-t-bark-pub-24842)
 [^2]: McCauley, R. N., & McGuire, P. (2009). Dollar appreciation in 2008: safe haven, carry trades, dollar shortage and overhedging. BIS Quarterly Review December.
