@@ -4,7 +4,7 @@ from prophet import Prophet
 from rates import get_rates
 
 #dataset: EUR/USD over the last year 
-data = get_rates("EUR", "USD", 60)
+data = get_rates("EUR", "USD", 356)
 data.columns = ['ds', 'y']
 
 # input to Prophet is always a pandas.dataframe with two columns: ds and y. 
@@ -34,6 +34,7 @@ def forecast(df, period, ci = 0.95):
     #plot predictions & confidence interval
     ax.plot(fcst_t, forecast['yhat'], ls='-', c='#0072B2')
     ax.fill_between(fcst_t, forecast['yhat_lower'], forecast['yhat_upper'], color='#0072B2', alpha=0.2)
+    plt.grid(axis='x')
 
     #save graph
     plt.savefig('./images/forecast.png')
@@ -47,7 +48,7 @@ def forecast(df, period, ci = 0.95):
     return forecast
 
 
-forecast_df = forecast(data, 10, 0.8)
+forecast_df = forecast(data, 21, 0.90)
 
 
 

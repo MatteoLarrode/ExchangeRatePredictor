@@ -212,8 +212,8 @@ The time-series data I am working with is univariate: the exchange rate is the o
 
 ### Prophet: predicting time-series data using machine learning
 
-[Facebook Prophet](https://facebook.github.io/prophet/) is an open-source algorithm for generating univariate time-series models. As explained in their [Github Page](https://github.com/facebook/prophet), "is a procedure for forecasting time series data based on an additive model where non-linear trends are fit with yearly, weekly, and daily seasonality, plus holiday effects." The documentation claims that "Prophet is robust to missing data and shifts in the trend, and typically handles outliers well."  At its core is the sum of three functions of time:growth g(t), seasonality s(t), holidays h(t), plus an error term
-- $$y(t) = g(t) + s(t) + h(t) + e_t$$
+[Facebook Prophet](https://facebook.github.io/prophet/) is an open-source algorithm for generating univariate time-series models. As explained in their [Github Page](https://github.com/facebook/prophet), "is a procedure for forecasting time series data based on an additive model where non-linear trends are fit with yearly, weekly, and daily seasonality, plus holiday effects." The documentation claims that "Prophet is robust to missing data and shifts in the trend, and typically handles outliers well."  At its core is the sum of three functions of time:growth g(t), seasonality s(t), holidays h(t), plus an error term </br>
+$$y(t) = g(t) + s(t) + h(t) + e_t$$
 
 <p>
 Having introduced the model, let us jump right into its implementation. The <code>forecast(df, ci, period)</code> function receives 3 arguments:
@@ -225,20 +225,32 @@ Having introduced the model, let us jump right into its implementation. The <cod
     - default value: 0.95 (95%)
 </p>
 
-
-
+First let us use the evolution of the EUR/USD pair's exchange rates over the last year to forecast the next two months. </br>
+<code> data = get_rates("EUR", "USD", 365)</code></br>
+<code> forecast(data, 90, 0.8)</code></br>
 <img src="./images/forecast1.png" alt="Forecast #1" width=700/> <br/>
+As displayed by the blue line, the model predicts a continuation of the depreciation of the euro, following the trend observed over the past year. However, the large range of the 80% confidence should be taken into account. The model predicts with 80% confidence that exchange rates will be in the area shaded in blue. The large width of this area observed on the plot illustrates the weakness of the model's prediction. Indeed, it cannot even predict with 80% confidence that exchange rates will continue to drop. <br/>
+<code> forecast(data, 90, 0.95)</code></br>
+As anticipated, setting the confidence to the usual 95% further widens the gap between the higher and lower bounds of the prediction. 
 <img src="./images/forecast2.png" alt="Forecast #2" width=700/> <br/>
+Reducing the forecasting horizon to the next three weeks allows to observe the model's short-term predictions. </br>
+<img src="./images/forecast3.png" alt="Forecast #3" width=700/> <br/>
 
+<p>
+The small variations displayed by the plot within the general trend are based on seasonality patterns picked up by the model during its training. For example, weekly seasonality can be observed:
+<img src="./images/components1.png" alt="Forecast #3" width=700/> <br/>
+It seems that the euro tends to depreciate more from Saturday to Tuesday, and that this depreciation has higher chances of being slowed down on Wednesday. Those findings should be taken with caution though. Indeed, in the absence of a confidence interval, there is no proof of the statistical significance of the relationship between week days and exchange rates variations. </br>
+</p>
 
 **Limitations**
+As expected, and announced in the disclaimer at the start of this repository, my attempt to forecast exchange rates proved to be unsuccessful. The lack of variables improving the predictive power of the model undermined the confidence of its findings in the face of the complexity of the forces influencing exchange rates. This project illustrates that forecasting exchange rates accurately requires more than historical data and a simple model.
 
 ### Potential follow-ups
 **Improving the accuracy of the model**: a multivariate model could include other variables varying over time, chosen using the exploratory data analysis takeaways. Such variables could include:
-- inflation
-- interest rates
-- trade balance
-- other factors of economic performance: political regimes, events etc..
+- Inflation
+- Reserve bank announcements and interest rate changes
+- Trade balance
+- Other factors of economic performance: political environment, government stability etc..
 
 **Improving data visualization**: many of the functions created in this project have a broad range of customization; dates, currencies, confidence interval among others. A web application would allow users to make full use of this customization. They could access historical and predicted exchange rates for over 150 currencies in a couple of clicks.
 
