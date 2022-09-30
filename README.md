@@ -142,14 +142,14 @@ Finally, with many economies struggling on the offset of the financial crisis, p
 The dollar's depreciation, driven by quantitative easing - injection of vast sums of money by the Federal Reserve into the economy to spur growth -, led European policy makers to worry that the resurgent euro would threaten growth in European nations. Moreover, as noted in this [New York Times article](https://www.nytimes.com/2010/10/21/business/global/21dollar.html) "many other currencies, especially in Asia and in emerging markets like Brazil, are soaring as a result of the dollar’s fall. Those nations’ domestic economies are attracting floods of speculative capital seeking higher interest rates and are at risk of overheating." 
 
 *The dollar falls sharply: USD in Brazilian Real, Indian Rupee, Thai Baht, and South Korean Won:*
-<img src="./images/currency-war.jpg" alt="US Depreciation" width=700/> <br/>
+<img src="./images/currency-war.jpg" alt="US Depreciation" width=850/> <br/>
 
 
 ### USD - EUR
 Let us narrow the scope on the USD/EUR pair, as required by the [rationale](#rationale) of this project <br/>
 
 <code>print_rates("USD", "EUR", 365)</code>
-<img src="./images/EUR-USD-year.png" alt="EUR/USD exchange rate over the last year" width=800/> <br/>
+<img src="./images/EUR-USD-year.png" alt="EUR/USD exchange rate over the last year" width=850/> <br/>
 
 Since the end of August, the euro trades at less than a dollar, a two-decade low, and many strategists predict further depreciation. This free fall in euro's value can be partially explained by two main factors.[^3] 
 - First, inflation in the eurozone, which averaged 8.6 percent in June. The Russia-Ukraine conflict significantly increasing energy prices in Europe, while the US, given its oil reserve and use of alternative sources of energy, stays relatively immune, will only reinforce this US dollar appreciation relative to the euro.
@@ -228,17 +228,17 @@ Having introduced the model, let us jump right into its implementation. The <cod
 First let us use the evolution of the EUR/USD pair's exchange rates over the last year to forecast the next two months. </br>
 <code> data = get_rates("EUR", "USD", 365)</code></br>
 <code> forecast(data, 90, 0.8)</code></br>
-<img src="./images/forecast1.png" alt="Forecast #1" width=800/> <br/>
+<img src="./images/forecast1.png" alt="Forecast #1" width=850/> <br/>
 As displayed by the blue line, the model predicts a continuation of the depreciation of the euro, following the trend observed over the past year. However, the large range of the 80% confidence should be taken into account. The model predicts with 80% confidence that exchange rates will be in the area shaded in blue. The large width of this area observed on the plot illustrates the weakness of the model's prediction. Indeed, it cannot even predict with 80% confidence that exchange rates will continue to drop. <br/>
 <code> forecast(data, 90, 0.95)</code></br>
 As anticipated, setting the confidence to the usual 95% further widens the gap between the higher and lower bounds of the prediction. 
-<img src="./images/forecast2.png" alt="Forecast #2" width=800/> <br/>
+<img src="./images/forecast2.png" alt="Forecast #2" width=850/> <br/>
 Reducing the forecasting horizon to the next three weeks allows to observe the model's short-term predictions. </br>
-<img src="./images/forecast3.png" alt="Forecast #3" width=800/> <br/>
+<img src="./images/forecast3.png" alt="Forecast #3" width=850/> <br/>
 
 <p>
 The small variations displayed by the plot within the general trend are based on seasonality patterns picked up by the model during its training. For example, weekly seasonality can be observed:
-<img src="./images/components1.png" alt="Forecast #3" width=800/> <br/>
+<img src="./images/components1.png" alt="Forecast #3" width=850/> <br/>
 It seems that the euro tends to depreciate more from Saturday to Tuesday, and that this depreciation has higher chances of being slowed down on Wednesday. Those findings should be taken with caution though. Indeed, in the absence of a confidence interval, there is no proof of the statistical significance of the relationship between week days and exchange rates variations. </br>
 </p>
 
