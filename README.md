@@ -259,9 +259,9 @@ This project allowed me to use a variety of tools across all the steps of a mach
 
 *Exploratory Data Analysis*</br>
 - Python libraries: matplotlib.plotly, datetime
-- Think critically about data  
+- Think critically about data
 - Creating informative and appealing plots
-- Communicating findings clearly and concisely
+- Communicating findings clearly and concisely: turn raw data into useful information
 </p>
 
 <p>
